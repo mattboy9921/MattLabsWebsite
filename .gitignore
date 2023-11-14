@@ -6,5 +6,6 @@ _drafts
 .sass-cache
 .jekyll-cache
 .jekyll-metadata
+.bundle
 vendor
 !_sass/bootstrap/vendor
