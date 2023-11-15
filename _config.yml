@@ -28,7 +28,8 @@ github_username:  jekyll
 
 # Build settings
 #theme: minima
-plugins: []
+plugins:
+  - jekyll-admin
 
 # Exclude from processing.
 # The following items will not be processed, by default.
