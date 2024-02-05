@@ -1,2 +1,11 @@
 *.iml
 .idea/
+_site
+_posts
+_drafts
+.sass-cache
+.jekyll-cache
+.jekyll-metadata
+.bundle
+vendor
+!_sass/bootstrap/vendor

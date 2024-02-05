@@ -1,0 +1,186 @@
+// Fonts
+$bodyFontStack: -apple-system,BlinkMacSystemFont,"Segoe UI",Helvetica,Arial,sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol";
+$font-family-monospace: 'JetBrains Mono', ui-monospace, 'Cascadia Code', 'Source Code Pro', Menlo, Consolas, 'DejaVu Sans Mono', monospace;
+
+$backgroundColor: #141525;
+$gradientColor: #2C2D44;
+$bodyColor: #cfd1de;
+
+body {
+  background-color: $backgroundColor;
+  color: $bodyColor;
+  font-family: Inter, $bodyFontStack;
+  font-feature-settings: 'liga' 1, 'calt' 1; /* fix for Chrome */
+}
+
+@supports (font-variation-settings: normal) {
+  body {
+    font-family: InterVariable, $bodyFontStack;
+  }
+}
+
+// Stars background
+
+#gradient {
+  height: 100vh;
+  width: 100vw;
+  background-image: radial-gradient(ellipse at bottom, $gradientColor 0%, #00000000 70%);
+  overflow: hidden;
+  position: absolute;
+  z-index: -100;
+}
+
+// Creates $n number of box shadows for a div
+@function multipleBoxShadow($n) {
+  $value: '#{random() * 100}vw #{random() * 100}vh rgba(255, 255, 255, #{random()})';
+  @for $i from 2 through $n {
+    $value: '#{$value} , #{random() * 100}vw #{random() * 100}vh rgba(255, 255, 255, #{random()})'
+  }
+  @return unquote($value)
+}
+
+// Number of stars for each layer
+$shadowsSmall: multipleBoxShadow(300);
+$shadowsMedium: multipleBoxShadow(100);
+$shadowsLarge: multipleBoxShadow(50);
+
+#stars1 {
+  width: 1px;
+  height: 1px;
+  background: transparent;
+  box-shadow: $shadowsSmall;
+  animation: animStar 150s linear infinite;
+
+  &:after {
+    content: " ";
+    position: absolute;
+    top: 100vh;
+    width: 1px;
+    height: 1px;
+    background: transparent;
+    box-shadow: $shadowsSmall;
+  }
+}
+
+#stars2 {
+  width: 2px;
+  height: 2px;
+  border-radius: 1px;
+  background: transparent;
+  box-shadow: $shadowsMedium;
+  animation: animStar 100s linear infinite;
+
+  &:after {
+    content: " ";
+    position: absolute;
+    top: 100vh;
+    width: 2px;
+    height: 2px;
+    border-radius: 1px;
+    background: transparent;
+    box-shadow: $shadowsMedium;
+  }
+}
+
+#stars3 {
+  width: 3px;
+  height: 3px;
+  border-radius: 1.5px;
+  background: transparent;
+  box-shadow: $shadowsLarge;
+  animation: animStar 50s linear infinite;
+
+  &:after {
+    content: " ";
+    position: absolute;
+    top: 100vh;
+    width: 3px;
+    height: 3px;
+    border-radius: 1.5px;
+    background: transparent;
+    box-shadow: $shadowsLarge;
+  }
+}
+
+@keyframes animStar {
+  from {
+    transform: translateY(0vh);
+  }
+  to {
+    transform: translateY(-100vh);
+  }
+}
+
+#content {
+  position: absolute;
+  z-index: 1;
+}
+
+// Matt Effect
+
+#matt-text {
+  animation: fade-reveal 1s 1s backwards;
+}
+
+#sub-text {
+  animation: fade-reveal 1s 6s backwards;
+}
+
+@keyframes fade-reveal {
+  from {
+    transform: translateY(.1em);
+    opacity: 0;
+  }
+}
+
+// Labs Text Type Effect
+
+#labs-text::before {
+  content: "";
+  animation: typing 1s 3s forwards;
+}
+
+#labs-text::after {
+  content: "_";
+  display: inline-block;
+  width: 0;
+  color: transparent;
+  animation: blink-cursor .5s step-end 2s 8 alternate;
+}
+
+// Don't show the typing animation
+@media (prefers-reduced-motion) {
+
+  #labs-text::before {
+    content: "Labs";
+    animation: none;
+  }
+
+  #labs-text {
+    animation: fade-reveal 1s 1s backwards;
+  }
+
+  #labs-text::after {
+    content: "";
+    animation: none;
+  }
+
+  // Adjust timing of subtext without typing animation
+  #sub-text {
+    animation: fade-reveal 1s 2s backwards;
+  }
+}
+
+@keyframes typing {
+  0% { content: ""}
+  25% { content: "L"}
+  50% { content: "La"}
+  75% { content: "Lab"}
+  100% { content: "Labs"}
+}
+
+@keyframes blink-cursor {
+  50% {
+    color: $bodyColor;
+  }
+}
