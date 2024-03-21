@@ -1,0 +1,13 @@
+links:
+
+- title: Home
+  description: The main landing page
+  url: /
+
+- title: Blog
+  description: Read about my adventures, projects and other fun stuff
+  url: \#
+
+- title: About
+  description: Info about me, my background and my resume
+  url: \#

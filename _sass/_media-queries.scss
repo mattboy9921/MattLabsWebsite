@@ -1,0 +1,44 @@
+// Adjustments to prevent motion
+@media (prefers-reduced-motion: reduce) {
+
+  #stars1,
+  #stars2,
+  #stars3,
+  #matt-text,
+  #labs-text,
+  #labs-text::before,
+  #labs-text::after,
+  #navbar-toggler {
+    animation: none;
+  }
+
+  #nav-home,
+  #socials,
+  #socials a,
+  #socials a:hover,
+  #socials a:active,
+  #navbar-toggler,
+  #content,
+  .nav-link-ml,
+  .nav-link-ml:hover,
+  .nav-link-ml:active,
+  .nav-search {
+    transition: none;
+  }
+
+  #labs-text::before {
+    content: "Labs";
+  }
+
+  #labs-text::after {
+    content: "";
+  }
+
+  #sub-text {
+    animation: fade-reveal 0s 0s backwards;
+  }
+
+  #nav-home {
+    opacity: 1;
+  }
+}

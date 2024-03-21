@@ -4,12 +4,11 @@ title: "MattLabs"
 description: "Great things are coming soon..."
 ---
 
-<div id="gradient">
-    <div id="stars1"></div>
-    <div id="stars2"></div>
-    <div id="stars3"></div>
-</div>
-<div class="container-fluid h-100 d-flex align-items-center justify-content-center" id="content">
+{% include stars-background.html %}
+
+{% include nav.html %}
+
+<main class="container-fluid h-100 d-flex align-items-center justify-content-center" id="content">
     <div>
         <div class="display-1 fw-medium row g-0 row-cols-auto justify-content-center" id="mattlabs-text">
             <div class="fw-bold text-danger col user-select-none" id="matt-text">Matt</div>
@@ -17,4 +16,4 @@ description: "Great things are coming soon..."
         </div>
         <p class="h5 text-center user-select-none" id="sub-text">Great things are coming soon...</p>
     </div>
-</div>
+</main>

@@ -1,0 +1,47 @@
+// MattLabs text and animation
+
+// Matt Effect
+
+#matt-text {
+  animation: fade-reveal 1s 1s backwards;
+}
+
+#sub-text {
+  animation: fade-reveal 1s 6s backwards;
+}
+
+@keyframes fade-reveal {
+  from {
+    transform: translateY(.1em);
+    opacity: 0;
+  }
+}
+
+// Labs Text Type Effect
+
+#labs-text::before {
+  content: "";
+  animation: typing 1s 3s forwards;
+}
+
+#labs-text::after {
+  content: "_";
+  display: inline-block;
+  width: 0;
+  color: transparent;
+  animation: blink-cursor .5s step-end 2s 8 alternate;
+}
+
+@keyframes typing {
+  0% { content: ""}
+  25% { content: "L"}
+  50% { content: "La"}
+  75% { content: "Lab"}
+  100% { content: "Labs"}
+}
+
+@keyframes blink-cursor {
+  50% {
+    color: $bodyColor;
+  }
+}

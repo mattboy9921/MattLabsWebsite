@@ -1,0 +1,66 @@
+<!-- Navbar -->
+<nav class="navbar navbar-dark nav-ml" id="nav-home">
+    <div class="container-fluid">
+        <button class="btn btn-outline-nav py-0 m-2" id="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasNavbar" aria-controls="offcanvasNavbar" aria-label="Toggle navigation">
+            <span class="fa-solid fa-chevron-right"></span>
+        </button>
+        <div class="offcanvas offcanvas-nav offcanvas-start" tabindex="-1" id="offcanvasNavbar" data-bs-backdrop="false" data-bs-theme="dark" aria-labelledby="offcanvasNavbarLabel">
+            <div class="row d-flex justify-content-center h-100">
+                <div class="col-auto h-100" id="offcanvas-menu-container">
+                    <div class="d-flex flex-column h-100">
+                        <div class="offcanvas-header">
+                            <h2 class="offcanvas-title" id="offcanvasNavbarLabel">
+                                <span class="fw-bold">Matt</span><span>Labs</span>
+                            </h2>
+                            <button type="button" class="btn-close-ml fa-solid fa-xmark" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+                        </div>
+                        <div class="d-flex flex-column h-100" id="offcanvas-body-container">
+                            <div class="offcanvas-body flex-grow-1">
+                                <ul class="navbar-nav justify-content-end flex-grow-1 pe-3">
+                                    {% for link in site.data.nav-links.links %}
+                                        <li class="nav-item">
+                                            <a class="nav-link-ml{% if link.url == page.url %} active" aria-current="page{% endif %}" href="{{ link.url }}">
+                                                <div class="row d-flex align-items-center">
+                                                    <div class="col-sm">
+                                                        <h1 class="display-2 fw-bold">{{ link.title }}</h1>
+                                                    </div>
+                                                    <div class="col-sm-6">
+                                                        <h5 class="fw-light fst-italic mb-0">{{ link.description }}</h5>
+                                                    </div>
+                                                </div>
+                                            </a>
+                                        </li>
+                                    {% endfor %}
+                                </ul>
+                                <form class="d-flex mt-3 nav-search" role="search" id="nav-search">
+                                    <input class="form-control form-control-nav focus-ring focus-ring-secondary me-2" type="search" placeholder="Search" aria-label="Search" disabled>
+                                    <button class="btn btn-outline-nav" type="submit" disabled>Search</button>
+                                </form>
+                            </div>
+                            <footer class="offcanvas-footer px-3 text-center">
+                                <div class="row justify-content-center">
+                                    <div class="col-sm-8">
+                                        <p>Built with
+                                            <a href="https://jekyllrb.com/" target="_blank">Jekyll</a> and
+                                            <a href="https://getbootstrap.com/" target="_blank">Bootstrap</a>, coded in
+                                            <a href="https://www.jetbrains.com/webstorm/" target="_blank">Webstorm</a>, deployed with
+                                            <a href="https://www.jenkins.io/" target="_blank">Jenkins</a>, self-hosted by me, source code on
+                                            <a href="https://github.com/mattboy9921/MattLabsWebsite" target="_blank">GitHub</a>
+                                            -
+                                            <a href="/admin">Login</a>
+                                        </p>
+                                    </div>
+                                </div>
+                            </footer>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="h4 pe-2 d-flex align-items-center" id="socials">
+            <a class="fa-brands fa-github" target="_blank" href="https://github.com/mattboy9921"></a>
+            <a class="fa-brands fa-linkedin" target="_blank" href="https://www.linkedin.com/in/matt-dicristina-909885299"></a>
+            <a class="fa-solid fa-envelope" target="_blank" href="mailto:matt@mattlabs.net"></a>
+        </div>
+    </div>
+</nav>
