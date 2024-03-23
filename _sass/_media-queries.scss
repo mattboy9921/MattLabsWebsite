@@ -42,3 +42,14 @@
     opacity: 1;
   }
 }
+
+// Adjust small stars border radius for zoom level
+@media (min-resolution: 1.5dppx) {
+  #stars1 {
+    border-radius: 0.5px;
+
+    &:after {
+      border-radius: 0.5px;
+    }
+  }
+}
