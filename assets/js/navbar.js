@@ -69,14 +69,25 @@ document.addEventListener('DOMContentLoaded', function () {
     // Get subtext
     const subText = document.getElementById('sub-text');
 
-    // Wait for subtext animation to play then play navbar animation
-    subText.addEventListener('animationstart', function () {
-        // Prevent animation from playing when offcanvas showing
-        if (!navbar.classList.contains('nav-visible')) {
-            // Navbar fade
-            navbar.classList.add('nav-fade-animation');
-            // Navbar toggler bounce animation
-            navbarToggler.classList.add('navbar-toggler-bounce');
-        }
-    });
+    // Set navbar to visible
+    if (subText === null) {
+        navVisibility(navbar, navbarToggler);
+    }
+    else {
+        // Wait for subtext animation to play then play navbar animation
+        subText.addEventListener('animationstart', function () {
+            navVisibility(navbar, navbarToggler);
+        });
+    }
 });
+
+// Controls navbar visibility
+function navVisibility(navbar, navbarToggler) {
+    // Prevent animation from playing when offcanvas showing
+    if (!navbar.classList.contains('nav-visible')) {
+        // Navbar fade
+        navbar.classList.add('nav-fade-animation');
+        // Navbar toggler bounce animation
+        navbarToggler.classList.add('navbar-toggler-bounce');
+    }
+}
