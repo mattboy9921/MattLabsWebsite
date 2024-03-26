@@ -1,0 +1,74 @@
+// 404
+
+#text-404 {
+  max-width: 41em;
+  animation: fade-reveal-left 1s ease-in-out;
+  font-feature-settings: "cv02";
+}
+
+#rocket-404 {
+  position: relative;
+  animation: fade-reveal 1s ease-in-out;
+
+  & svg {
+    display: block;
+  }
+
+  & .shuttle,
+  .icon,
+  .trail-shuttle {
+    width: 100%;
+    height: 100%;
+    animation: move-shuttle 400s infinite linear both;
+  }
+
+  & .shuttle,
+  .icon {
+    position: absolute;
+    top: 0;
+  }
+
+  & .trail-shuttle {
+    filter: blur(1px) drop-shadow(0 0 30px white);
+
+    & .trail-stop-start {
+      stop-color: #FFFFFF88;
+    }
+
+    & .trail-stop-end {
+      stop-color: #FFFFFF00;
+    }
+
+    & .trail-path {
+      fill: url(#trail-shuttle-gradient);
+      animation: shuttle-booster-trail 10s none infinite alternate;
+    }
+  }
+}
+
+@keyframes move-shuttle {
+  0% {
+    transform: translate(0px, 0px);
+  }
+  25% {
+    transform: translate(-100px, -100px) rotate(-360deg);
+  }
+  50% {
+    transform: translate(0px, 0px) rotate(-720deg);
+  }
+  75% {
+    transform: translate(100px, 100px) rotate(-1080deg);
+  }
+  100% {
+    transform: translate(0px, 0px) rotate(-1440deg);
+  }
+}
+
+@keyframes shuttle-booster-trail {
+  0%, 8%, 12%, 18% {
+    opacity: 0;
+  }
+  6%, 10%, 14% {
+    opacity: 1;
+  }
+}
