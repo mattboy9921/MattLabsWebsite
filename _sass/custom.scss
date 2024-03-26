@@ -28,11 +28,45 @@ body {
   position: absolute;
   z-index: 1;
   transition: opacity 300ms ease-in-out;
+  height: 100vh;
+}
+
+// Button
+.btn-outline-ml {
+  @extend .btn;
+  @extend .btn-outline-secondary;
+
+  --#{$prefix}btn-color: #{$bodyColor};
+  --#{$prefix}btn-hover-bg: #{$danger};
+  --#{$prefix}btn-hover-border-color: transparent;
+  --#{$prefix}btn-active-bg: #{darken($danger, 10%)};
+  --#{$prefix}btn-active-border-color: transparent;
+}
+
+// Animations
+@keyframes fade-reveal {
+  from {
+    transform: translateY(.1em);
+    opacity: 0;
+  }
+}
+
+@keyframes fade-reveal-left {
+  from {
+    transform: translateX(-1em);
+    opacity: 0;
+  }
 }
 
 // Common
 @import "stars-background";
 @import "nav";
+
+// Launching Soon
+@import "launching-soon";
+
+// 404
+@import "404";
 
 // Home
 @import "mattlabs-text";

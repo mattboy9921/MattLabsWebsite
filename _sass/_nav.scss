@@ -27,17 +27,6 @@
 }
 
 // Navbar toggler button
-.btn-outline-nav {
-  @extend .btn;
-  @extend .btn-outline-secondary;
-
-  --#{$prefix}btn-color: #{$bodyColor};
-  --#{$prefix}btn-hover-bg: #{$danger};
-  --#{$prefix}btn-hover-border-color: transparent;
-  --#{$prefix}btn-active-bg: #{darken($danger, 10%)};
-  --#{$prefix}btn-active-border-color: transparent;
-}
-
 #navbar-toggler {
   font-size: x-large;
   transition: color $transitionNormal ease-in-out, background-color $transitionNormal ease-in-out, border-color $transitionNormal ease-in-out, box-shadow $transitionNormal ease-in-out, opacity 300ms ease-in-out;

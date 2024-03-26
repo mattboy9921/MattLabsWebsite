@@ -10,13 +10,6 @@
   animation: fade-reveal 1s 6s backwards;
 }
 
-@keyframes fade-reveal {
-  from {
-    transform: translateY(.1em);
-    opacity: 0;
-  }
-}
-
 // Labs Text Type Effect
 
 #labs-text::before {

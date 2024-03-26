@@ -3,7 +3,7 @@
   <head>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta charset="utf-8">
-    <title>{{ site.title }}</title>
+    <title>{{ page.title }} - {{ site.title }}</title>
     <link rel="stylesheet" href="{{ "/assets/css/main.css" | relative_url }}">
     <script src="/assets/js/bootstrap/bootstrap.min.js"></script>
     <script src="/assets/js/navbar.js"></script>
@@ -12,6 +12,8 @@
     {% seo %}
   </head>
   <body>
+    {% include stars-background.html %}
+    {% include nav.html %}
     {{ content }}
   </body>
 </html>
