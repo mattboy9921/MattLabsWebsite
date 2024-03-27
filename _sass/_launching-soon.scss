@@ -2,12 +2,15 @@
 
 #launching-soon-text {
   max-width: 41em;
+  max-height: 70vh;
   animation: fade-reveal-left 1s ease-in-out;
 }
 
 #rocket-ls {
   position: relative;
   animation: fade-reveal-up 1s ease-in-out;
+  width: calc(15vw + 10vh);
+  max-width: 300px;
 
   & svg {
     display: block;
@@ -23,13 +26,14 @@
 
   & .shuttle,
   .icon,
-  .trail-booster{
+  .trail-booster {
     position: absolute;
     top: 0;
   }
 
   & .trail-booster {
     filter: blur(1px) drop-shadow(0 0 15px white);
+    width: 100%;
 
     & .trail-stop-start {
       stop-color: #FFFFFF88;

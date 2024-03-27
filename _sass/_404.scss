@@ -2,6 +2,7 @@
 
 #text-404 {
   max-width: 41em;
+  max-height: 70vh;
   animation: fade-reveal-left 1s ease-in-out;
   font-feature-settings: "cv02";
 }
@@ -9,6 +10,9 @@
 #rocket-404 {
   position: relative;
   animation: fade-reveal 1s ease-in-out;
+  width: calc(15vw + 10vh);
+  max-width: 300px;
+  pointer-events: none;
 
   & svg {
     display: block;
@@ -48,19 +52,19 @@
 
 @keyframes move-shuttle {
   0% {
-    transform: translate(0px, 0px);
+    transform: translate(0, 0);
   }
   25% {
-    transform: translate(-100px, -100px) rotate(-360deg);
+    transform: translate(4em, -4em) rotate(-360deg);
   }
   50% {
-    transform: translate(0px, 0px) rotate(-720deg);
+    transform: translate(0, 0) rotate(-720deg);
   }
   75% {
-    transform: translate(100px, 100px) rotate(-1080deg);
+    transform: translate(-4em, 4em) rotate(-1080deg);
   }
   100% {
-    transform: translate(0px, 0px) rotate(-1440deg);
+    transform: translate(0, 0) rotate(-1440deg);
   }
 }
 
