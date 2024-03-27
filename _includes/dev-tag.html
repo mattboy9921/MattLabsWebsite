@@ -1,15 +1,15 @@
 {% if jekyll.environment contains "dev" or jekyll.environment contains "stage" %}
-  <!-- Dev Tag -->
-  <div class="overflow-hidden" id="dev-tag-container" data-bs-theme="dark">
-    {% if jekyll.environment contains "dev" %}
-      <div class="alert alert-success fade show dev-tag px-2 py-1 user-select-none font-monospace" role="alert" data-bs-dismiss="alert">
-          Dev {{ site.time | date: '%m-%d-%y %H:%M:%S' }}
-      </div>
-    {% elsif jekyll.environment contains "stage" %}
-        {% assign commit = 'https://api.github.com/repos/mattboy9921/MattLabsWebsite/commits/dev' | http_request: 'GET', '', '' | parse_json %}
-        <div class="alert alert-info fade show dev-tag px-2 py-1 user-select-none font-monospace" role="alert" data-bs-dismiss="alert">
-            Stage {{ commit.sha | truncate: 7, "" }}
-        </div>
-    {% endif %}
-  </div>
+    <!-- Dev Tag -->
+    <div class="overflow-hidden" id="dev-tag-container" data-bs-theme="dark">
+        {% if jekyll.environment contains "dev" %}
+            <div class="alert alert-success fade show dev-tag px-2 py-1 user-select-none font-monospace" role="alert" data-bs-dismiss="alert">
+                Dev {{ site.time | date: '%m-%d-%y %H:%M:%S' }}
+            </div>
+        {% elsif jekyll.environment contains "stage" %}
+            {% assign commit = 'https://api.github.com/repos/mattboy9921/MattLabsWebsite/commits/dev' | http_request: 'GET', '', '' | parse_json %}
+            <div class="alert alert-info fade show dev-tag px-2 py-1 user-select-none font-monospace" role="alert" data-bs-dismiss="alert">
+                Stage {{ commit.sha | truncate: 7, "" }}
+            </div>
+        {% endif %}
+    </div>
 {% endif %}
