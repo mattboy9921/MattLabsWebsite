@@ -2,9 +2,10 @@
   <!-- Dev Tag -->
   <div class="overflow-hidden" id="dev-tag-container">
     {% if jekyll.environment contains "dev" %}
-      <h5><span class="badge text-bg-success dev-tag">Dev</span></h5>
+      <h5><span class="badge text-bg-success dev-tag">Dev {{ site.time | date: '%m-%d-%y %H:%M:%S' }}</span></h5>
     {% elsif jekyll.environment contains "stage" %}
-       <h5><span class="badge text-bg-info dev-tag">Stage</span></h5>
+        {% assign commit = 'https://api.github.com/repos/mattboy9921/MattLabsWebsite/commits/dev' | http_request: 'GET', '', '' | parse_json %}
+       <h5><span class="badge text-bg-info dev-tag">Stage {{ commit.sha | truncate: 7, "" }}</span></h5>
     {% endif %}
   </div>
 {% endif %}

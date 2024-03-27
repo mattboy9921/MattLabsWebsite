@@ -10,3 +10,4 @@ gem "jekyll-admin", group: :jekyll_plugins
 gem "rackup"
 gem "jekyll-seo-tag"
 gem "jekyll-sitemap"
+gem "jekyll-http-request"
