@@ -1,0 +1,10 @@
+{% if jekyll.environment contains "dev" or jekyll.environment contains "stage" %}
+  <!-- Dev Tag -->
+  <div class="overflow-hidden" id="dev-tag-container">
+    {% if jekyll.environment contains "dev" %}
+      <h5><span class="badge text-bg-success dev-tag">Dev</span></h5>
+    {% elsif jekyll.environment contains "stage" %}
+       <h5><span class="badge text-bg-info dev-tag">Stage</span></h5>
+    {% endif %}
+  </div>
+{% endif %}
