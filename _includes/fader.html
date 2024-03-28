@@ -1,0 +1,13 @@
+<!-- Fader -->
+<svg id="fader"></svg>
+<script>
+    fadeInPage();
+
+    function fadeInPage() {
+        if (!window.AnimationEvent) {
+            return;
+        }
+        const fader = document.getElementById('fader');
+        fader.classList.add('fader-fade-out');
+    }
+</script>
