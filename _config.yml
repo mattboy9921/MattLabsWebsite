@@ -16,3 +16,5 @@ plugins:
   - jekyll-seo-tag
   - jekyll-sitemap
   - jekyll-http-request
+  - jekyll-latex
+  - jekyll-include-raw

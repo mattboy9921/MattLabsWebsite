@@ -1,10 +1,72 @@
 ---
-layout: launching-soon
+layout: default
 title: "About"
 description: "Info about me, my background and my resume"
 permalink: /about/
 ---
-
-<main class="container-fluid d-flex align-items-center justify-content-center" id="content">
-    Nothing to see here yet!
+<script src="/assets/js/swiftlatex/20-02-2022/PdfTeXEngine.js"></script>
+<script src="/assets/js/ace/1.32.9/src-min-noconflict/ace.js" type="text/javascript" charset="utf-8"></script>
+<script src="/assets/js/pdfjs/4.0.379/build/pdf.mjs" type="module"></script>
+<script src="/assets/js/latex.js" defer></script>
+<main class="container-fluid d-flex align-items-center justify-content-center overflow-x-hidden" id="content">
+    <div class="row w-100 justify-content-center" id="about-container">
+        <div class="col-xxl-11 h-100">
+            <div class="container-fluid d-flex justify-content-center">
+                <div class="col-lg-8 pb-5">
+                    <p class="display-1 fw-bold text-danger">About</p>
+                    {% capture about-text %}{% include about.md %}{% endcapture %}
+                    {{ about-text | markdownify }}
+                </div>
+            </div>
+            <div class="row h-100 justify-content-around align-items-center">
+                <div class="about-card-col col-lg-6 h-100 pb-4">
+                    <div class="card text-bg-deepspace h-100">
+                        <div class="card-header d-flex justify-content-between align-items-center">
+                            <div>LaTeX Code</div>
+                            <button type="button" class="btn btn-lightspace btn-sm" onclick="downloadAsTex()"><span
+                                        class="fa-solid fa-download"></span></button>
+                        </div>
+                        <div class="card-body p-0">
+                            <div class="w-100 h-100 font-monospace rounded-bottom"
+                                 id="editor">{% include_raw resume.tex %}</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="about-card-col col-lg-6 h-100 pb-4">
+                    <div class="card text-bg-deepspace h-100">
+                        <div class="card-header d-flex justify-content-between">
+                            <div class="nav nav-pills-ml card-header-pills" id="myTab" role="tablist">
+                                <button class="nav-link" id="output-tab" data-bs-toggle="tab" data-bs-target="#output-tab-pane" type="button" role="tab" aria-controls="output-tab-pane" aria-selected="true">Output</button>
+                                <button class="nav-link active" id="log-tab" data-bs-toggle="tab" data-bs-target="#log-tab-pane" type="button" role="tab" aria-controls="log-tab-pane" aria-selected="false">Log</button>
+                            </div>
+                            <div>
+                                <button type="button" class="btn btn-danger btn-sm" id="compile-button" onclick="compile()" disabled><span class="fa-solid fa-hourglass-half"></span></button>
+                                <button type="button" class="btn btn-lightspace btn-sm" onclick="downloadAsPDF()" id="pdf-download"><span class="fa-solid fa-download"></span></button>
+                            </div>
+                        </div>
+                        <div class="card-body p-0 overflow-hidden">
+                            <div class="tab-content h-100" id="myTabContent">
+                                <div class="tab-pane h-100 fade" id="output-tab-pane" role="tabpanel" aria-labelledby="output-tab" tabindex="0">
+                                    <div class="h-100 d-flex justify-content-center rounded-bottom overflow-x-hidden" id="output-tab-container">
+                                        <div class="h-100 w-100 " id="pdfbox">
+                                            <div class="h-100 d-flex flex-column justify-content-center align-items-center">
+                                                <div class="spinner-border text-danger" style="width: 3rem; height: 3rem;" role="status"></div>
+                                                <p class="text-danger py-2">LaTeX is rendering...</p>
+                                                <button type="button" class="btn btn-danger" onclick="renderPDF('/assets/pregen-resume.pdf')">Load precompiled PDF</button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="tab-pane fade show active h-100" id="log-tab-pane" role="tabpanel" aria-labelledby="log-tab" tabindex="0">
+                                    <div class="font-monospace rounded-bottom overflow-x-hidden h-100 px-2" id="card-scroll">
+                                        <p id="log-text">~</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
 </main>

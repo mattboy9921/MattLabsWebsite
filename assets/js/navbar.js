@@ -25,7 +25,8 @@ document.addEventListener('DOMContentLoaded', function () {
     // Get contact
     contents.push(document.getElementById('socials'));
     // Get content
-    contents.push(document.getElementById('content'));
+    const content = document.getElementById('content');
+    contents.push(content);
 
     // Open
     offcanvas.addEventListener('show.bs.offcanvas', function () {
@@ -79,6 +80,17 @@ document.addEventListener('DOMContentLoaded', function () {
             navVisibility(navbar, navbarToggler);
         });
     }
+
+    // Navbar hide when content scrolls
+    content.addEventListener('scroll', function() {
+        if (content.scrollTop > 0) {
+            navbar.classList.remove('nav-fade-animation');
+            navbar.classList.add('nav-scroll');
+        } else {
+            navbar.classList.remove('nav-scroll');
+            navbar.classList.add('nav-visible');
+        }
+    });
 });
 
 // Controls navbar visibility
