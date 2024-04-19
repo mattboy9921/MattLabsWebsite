@@ -1,16 +1,3 @@
-// Fonts
-$bodyFontStack: $font-family-sans-serif;
-$monospaceFontStack: $font-family-monospace;
-
-// Variables
-// Colors
-$backgroundColor: #141525;
-$gradientColor: #2C2D44;
-$bodyColor: #cfd1de;
-
-// Timing
-$transitionNormal: 150ms;
-
 body {
   background-color: $backgroundColor;
   color: $bodyColor;
@@ -71,6 +58,9 @@ body {
 
 // Home
 @import "mattlabs-text";
+
+// About
+@import "about";
 
 // Dev tag
 @import "dev-tag";

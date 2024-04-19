@@ -1,0 +1,6 @@
+// Color overrides
+$custom-colors: (
+        "lightspace": $lightSpace,
+        "deepspace": $deepSpace
+);
+$theme-colors: map-merge($theme-colors, $custom-colors);

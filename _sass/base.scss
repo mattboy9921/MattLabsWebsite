@@ -3,15 +3,39 @@
 
 // Variable overrides
 @import "fonts";
+@import "overrides/variables";
 
 // Required Bootstrap stylesheets
 @import "bootstrap/variables";
 @import "bootstrap/variables-dark";
 
 // Map overrides
+@import "overrides/colors";
 
-// Import Bootstrap
-@import "bootstrap/bootstrap";
+// Rest of required
+@import "bootstrap/maps";
+@import "bootstrap/mixins";
+@import "bootstrap/root";
+
+// Optional
+@import "bootstrap/utilities";
+@import "bootstrap/reboot";
+@import "bootstrap/type";
+@import "bootstrap/containers";
+@import "bootstrap/grid";
+
+@import "bootstrap/nav";
+@import "bootstrap/navbar";
+@import "bootstrap/buttons";
+@import "bootstrap/offcanvas";
+@import "bootstrap/close";
+@import "bootstrap/forms";
+@import "bootstrap/alert";
+@import "bootstrap/card";
+@import "bootstrap/spinners";
+
+@import "bootstrap/helpers";
+@import "bootstrap/utilities/api";
 
 // Custom code
 @import "custom";

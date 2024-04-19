@@ -1,0 +1,17 @@
+// Custom variables
+
+// Colors
+$space: #141525;
+$lightSpace: shift-color($space, -15%);
+$deepSpace: shift-color($space, -5%);
+
+$backgroundColor: $space;
+$gradientColor: #2C2D44;
+$bodyColor: #cfd1de;
+
+// Timing
+$transitionNormal: 150ms;
+
+// Fonts
+$bodyFontStack: $font-family-sans-serif;
+$monospaceFontStack: $font-family-monospace;
