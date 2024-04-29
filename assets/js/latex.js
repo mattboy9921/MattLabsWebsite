@@ -90,6 +90,8 @@ async function initSwiftLaTeX() {
 
     logText.innerHTML = '<p>' + new Date().toLocaleString() + ': Engine loaded</p>';
 
+    // Load pregen
+    renderPDF();
     // Start first compile
     compile();
 }
@@ -108,8 +110,6 @@ async function compile() {
     compileButton.disabled = true;
     pdfDownload.disabled = true;
 
-    pdfbox.innerHTML = pdfboxLoading;
-
     let r = await engine.compileLaTeX(); // r contains PDF binray and compilation log.
 
     if (r.status === 0) {
@@ -123,7 +123,7 @@ async function compile() {
 
         if (pregenLoaded) {
             // Create alert
-            var alert = document.createElement('div');
+            let alert = document.createElement('div');
 
             alert.className = 'alert alert-danger fade show text-center';
             alert.id = 'pdf-compile-alert';
@@ -138,6 +138,10 @@ async function compile() {
             pregenLoaded = false;
         }
         else {
+            let alert = document.getElementById('pdf-compile-alert');
+            if (alert) {
+                alert.remove();
+            }
             renderPDF();
         }
     }
@@ -158,11 +162,31 @@ logTab.addEventListener('shown.bs.tab', function (event) {
     cardScroll.scrollTop = cardScroll.scrollHeight;
 });
 
-function renderPDF() {
+async function renderPDF() {
+    pdfbox.classList.add('pdf-loading');
+    await waitForTransitionEnd(pdfbox);
     pdfbox.innerHTML = '';
 
     if (pdfURL === '/assets/pregen-resume.pdf') {
         pregenLoaded = true;
+
+        // Create alert
+        var alert = document.createElement('div');
+
+        alert.className = 'alert alert-dark fade show text-center px-2 py-1';
+        alert.id = 'pdf-pregen-alert';
+        alert.setAttribute('role', 'alert');
+        alert.setAttribute('data-bs-dismiss', 'alert');
+        alert.textContent = 'Pre-generated Output';
+
+        document.getElementById('output-tab-container').appendChild(alert);
+    }
+
+    if (!pregenLoaded) {
+        const alert = document.getElementById('pdf-pregen-alert');
+        if (alert) {
+            alert.remove();
+        }
     }
 
     pdfjsLib.GlobalWorkerOptions.workerSrc = "/assets/js/pdfjs/4.0.379/build/pdf.worker.mjs";
@@ -170,7 +194,11 @@ function renderPDF() {
         // Loop through each page
         for(let pageNum = 1; pageNum <= pdf.numPages; pageNum++) {
             // Render each page and append to container
-            pdf.getPage(pageNum).then(page => renderPage(page, pageNum));
+            pdf.getPage(pageNum).then(page => renderPage(page, pageNum).then(() => {
+                if (pageNum === pdf.numPages) {
+                    pdfbox.classList.remove('pdf-loading');
+                }
+            }));
         }
     }).catch(error => {
         console.error('Error loading PDF:', error);
@@ -205,7 +233,7 @@ function renderPage(page, pageNum) {
         textLayer: "visible"
     });
 
-    renderTask.promise.then(() => {
+    return renderTask.promise.then(() => {
         console.log(`Page ${pageNum} rendered`);
     }).catch(error => {
         console.error(`Error rendering page ${pageNum}:`, error);
@@ -226,4 +254,17 @@ function downloadAsPDF() {
     // Cleanup
     document.body.removeChild(link);
     URL.revokeObjectURL(link.href);
+}
+
+// Transition helper
+function waitForTransitionEnd(element) {
+    return new Promise(resolve => {
+        function transitionEndHandler(event) {
+            if (event.target === element) {
+                element.removeEventListener('transitionend', transitionEndHandler);
+                resolve();
+            }
+        }
+        element.addEventListener('transitionend', transitionEndHandler);
+    });
 }

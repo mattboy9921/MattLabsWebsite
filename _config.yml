@@ -9,6 +9,13 @@ baseurl: "" # the subpath of your site, e.g. /blog
 url: "https://mattlabs.net" # the base hostname & protocol for your site, e.g. http://example.com
 github_username:  mattboy9921
 
+defaults:
+  -
+    scope:
+      path: "assets/**/*.pdf"
+    values:
+      sitemap: false
+
 # Build settings
 
 plugins:

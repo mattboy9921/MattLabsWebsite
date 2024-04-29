@@ -55,12 +55,33 @@
 
 #pdfbox {
   position: relative;
+  transition: opacity $transitionNormal ease-in-out;
+  z-index: 5;
 }
 
 #pdf-compile-alert {
   position: absolute;
   top: 4em;
   opacity: 0.85;
+  z-index: 5;
+}
+
+#pdf-pregen-alert {
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  opacity: 0.85;
+  margin: 17px;
+  z-index: 5;
+}
+
+.pdf-loading {
+  opacity: 0;
+}
+
+#pdfbox-spinner {
+  z-index: 4;
+  position: absolute;
 }
 
 a {
