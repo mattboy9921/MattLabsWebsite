@@ -4,6 +4,7 @@ _site
 _posts
 _drafts
 _about_items/*
+!_about_items/.gitkeep
 .sass-cache
 .jekyll-cache
 .jekyll-metadata
