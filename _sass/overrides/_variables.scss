@@ -4,10 +4,14 @@
 $space: #141525;
 $lightSpace: shift-color($space, -15%);
 $deepSpace: shift-color($space, -5%);
+$blueSpace: lighten($space, 15%);
 
 $backgroundColor: $space;
 $gradientColor: #2C2D44;
 $bodyColor: #cfd1de;
+$white: $bodyColor;
+
+$min-contrast-ratio: 4.4;
 
 // Timing
 $transitionNormal: 150ms;

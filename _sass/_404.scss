@@ -23,7 +23,7 @@
   .trail-shuttle {
     width: 100%;
     height: 100%;
-    animation: move-shuttle 400s infinite linear both;
+    animation: move-shuttle-404 400s infinite linear both;
   }
 
   & .shuttle,
@@ -45,12 +45,12 @@
 
     & .trail-path {
       fill: url(#trail-shuttle-gradient);
-      animation: shuttle-booster-trail 10s none infinite alternate;
+      animation: shuttle-booster-trail-404 10s none infinite alternate;
     }
   }
 }
 
-@keyframes move-shuttle {
+@keyframes move-shuttle-404 {
   0% {
     transform: translate(0, 0);
   }
@@ -68,7 +68,7 @@
   }
 }
 
-@keyframes shuttle-booster-trail {
+@keyframes shuttle-booster-trail-404 {
   0%, 8%, 12%, 18% {
     opacity: 0;
   }

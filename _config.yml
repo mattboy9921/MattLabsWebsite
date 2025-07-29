@@ -16,6 +16,11 @@ defaults:
     values:
       sitemap: false
 
+collections:
+  - about_items
+
+excerpt_separator: <!--more-->
+
 # Build settings
 
 plugins:

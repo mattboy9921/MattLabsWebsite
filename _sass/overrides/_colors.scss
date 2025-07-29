@@ -1,6 +1,10 @@
 // Color overrides
-$custom-colors: (
+$deepDanger: shift-color($danger, 75%);
+
+$custom-theme-colors: (
         "lightspace": $lightSpace,
-        "deepspace": $deepSpace
+        "deepspace": $deepSpace,
+        "bluespace": $blueSpace,
+        "deepdanger": $deepDanger
 );
-$theme-colors: map-merge($theme-colors, $custom-colors);
+$theme-colors: map-merge($theme-colors, $custom-theme-colors);

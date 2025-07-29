@@ -30,6 +30,45 @@ body {
   --#{$prefix}btn-active-border-color: transparent;
 }
 
+.btn-no-outline-ml {
+  @extend .btn-close;
+
+  --#{$prefix}btn-close-color: #{$bodyColor};
+  --#{$prefix}btn-close-hover-opacity: 100%;
+  --#{$prefix}btn-close-focus-shadow: 0 0 0 0.25rem rgba($bodyColor, 0.25);
+
+  background: none;
+  filter: unset !important;
+  font-size: x-large;
+  transition: color $transitionNormal ease-in-out, opacity $transitionNormal ease-in-out;
+
+  &:hover {
+    --#{$prefix}btn-close-color: #{$danger};
+  }
+
+  &:active {
+    --#{$prefix}btn-close-color: #{darken($danger, 10%)};
+  }
+}
+
+// Forms
+.form-control-ml {
+  @extend .form-control;
+
+  color: $bodyColor;
+  background-color: rgba($bodyColor, 0.2);
+  border-color: $secondary;
+
+  &:focus {
+    color: $bodyColor;
+    background-color: rgba($bodyColor, 0.2);
+  }
+
+  &::placeholder {
+    color: $bodyColor;
+  }
+}
+
 // Animations
 @keyframes fade-reveal {
   from {
