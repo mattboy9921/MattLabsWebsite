@@ -8,7 +8,7 @@ document.addEventListener('DOMContentLoaded', function () {
     const anchors = document.getElementsByTagName('a');
     for (let idx = 0; idx < anchors.length; idx += 1) {
         // Ignore external links and same page links
-        if (anchors[idx].hostname !== window.location.hostname || (anchors[idx].pathname === window.location.pathname && !anchors[idx].classList.contains('active'))) {
+        if (anchors[idx].hostname !== window.location.hostname || anchor.target === "_blank" || (anchors[idx].pathname === window.location.pathname && !anchors[idx].classList.contains('active'))) {
             continue;
         }
         // Defer location change for animation
