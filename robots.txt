@@ -1,0 +1,12 @@
+---
+layout: null
+sitemap: false
+---
+{%- if jekyll.environment contains "dev" or jekyll.environment contains "stage" -%}
+User-agent: *
+Disallow: /
+{%- else -%}
+User-agent: *
+Disallow: /admin
+Sitemap: {{ "sitemap.xml" | absolute_url }}
+{%- endif -%}
