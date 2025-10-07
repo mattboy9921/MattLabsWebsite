@@ -1,11 +1,10 @@
 // Stars background
 
 #star-background {
-  height: 100vh;
-  width: 100vw;
   background-image: radial-gradient(ellipse at bottom, $gradientColor 0%, #00000000 70%);
   overflow: hidden;
-  position: absolute;
+  position: fixed;
+  inset: 0;
   z-index: -100;
 }
 

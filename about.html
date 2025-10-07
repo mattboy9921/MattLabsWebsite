@@ -5,87 +5,81 @@ description: "Info about me, my background and my resume"
 permalink: /about/
 ---
 <script src="/assets/js/about-card.js" defer></script>
-<main class="container-fluid d-flex align-items-center justify-content-center overflow-x-hidden" id="content">
-    <div class="row w-100 justify-content-center" id="about-container">
-        <div class="col-xxl-11 h-100 p-0">
-            <div class="container-fluid d-flex flex-column align-items-center p-0">
-                <div class="col-xl-8 px-3">
-                    <p class="display-1 fw-bold text-danger">About</p>
-                    {% capture about-text %}{% include about.md %}{% endcapture %}
-                    {{ about-text | markdownify }}
-                </div>
-                {% comment %} Create lists for categories and tags {% endcomment %}
-                {% assign about_tags = "" | split: "" %}
-                {% assign about_categories = "" %}
-                {% for item in site.about_items %}
-                    {% assign about_tags = about_tags | concat: item.about_tags %}
-                    {% assign about_categories = about_categories | append: "," | append: item.about_category %}
-                {% endfor %}
-                {% assign about_tags = about_tags | uniq | sort %}
-                {% assign about_categories = about_categories | remove_first: "," | split: "," | uniq %}
-                <div class="col-12 col-xl-8 p-3 d-flex flex-wrap flex-md-nowrap gap-2 justify-content-center">
-                    <div class="col-12 col-md-auto d-flex flex-nowrap column-gap-2 justify-content-between" id="filter-categories">
-                        {% for about_category in about_categories %}
-                            <input type="checkbox" class="btn-check" id="category-{{ about_category }}" autocomplete="off">
-                            <label type="button" class="btn btn-outline-ml flex-fill flex-md-auto" for="category-{{ about_category }}">{{ about_category }}</label>
+<div class="d-flex flex-column flex-nowrap align-items-center justify-content-center">
+    <div class="p-3 w-100">
+        <p class="display-1 fw-bold text-danger">About</p>
+        {% capture about-text %}{% include about.md %}{% endcapture %}
+        {{ about-text | markdownify }}
+    </div>
+    {% comment %} Create lists for categories and tags {% endcomment %}
+    {% assign about_tags = "" | split: "" %}
+    {% assign about_categories = "" %}
+    {% for item in site.about_items %}
+        {% assign about_tags = about_tags | concat: item.about_tags %}
+        {% assign about_categories = about_categories | append: "," | append: item.about_category %}
+    {% endfor %}
+    {% assign about_tags = about_tags | uniq | sort %}
+    {% assign about_categories = about_categories | remove_first: "," | split: "," | uniq %}
+    <div class="p-3 w-100 d-flex flex-wrap flex-md-nowrap gap-2 justify-content-center">
+        <div class="col-12 col-md-auto d-flex flex-nowrap column-gap-2 justify-content-between" id="filter-categories">
+            {% for about_category in about_categories %}
+                <input type="checkbox" class="btn-check" id="category-{{ about_category }}" autocomplete="off">
+                <label type="button" class="btn btn-outline-ml flex-fill flex-md-auto" for="category-{{ about_category }}">{{ about_category }}</label>
+            {% endfor %}
+        </div>
+        <div class="d-flex col-12 col-md-3 position-relative" id="search-container">
+            <div class="input-group">
+                <input class="form-control form-control-ml focus-ring focus-ring-secondary border-end-0 search-bar" id="filter-search-input" type="search" placeholder="Search" aria-label="Search">
+                <button class="btn btn-search-ml border-start-0 ms-0 search-bar fa-solid fa-magnifying-glass" id="filter-search-submit" type="submit"></button>
+            </div>
+            <datalist id="search-tags">
+                {% for tag in about_tags %}
+                <option value="{{ tag }}">
+                    {% endfor %}
+            </datalist>
+            <div class="list-group-ml d-none" id="search-suggestions"></div>
+        </div>
+        <div class="d-flex flex-grow-1 justify-content-center justify-content-md-end">
+            <a href="/resume/" target="_blank" class="btn btn-outline-ml d-flex flex-nowrap column-gap-1 align-items-center"><span>View</span><span>Resume</span><span class="fa-solid fa-arrow-up-right-from-square"></span></a>
+        </div>
+    </div>
+    <div class="py-3 w-100">
+        <div id="about-cards">
+            {% for item in site.about_items %}
+                <div class="about-card p-3 mb-2"
+                     data-category="{{ item.about_category }}"
+                     data-title="{{ item.title | downcase }}"
+                     data-subtitle="{{ item.subtitle | downcase }}"
+                     data-tags="{{ item.about_tags | join: ',' | downcase }}"
+                     data-content="{{ item.content | strip_html | downcase }}">
+                    <h2 class="about-card-title">{{ item.title }}</h2>
+                    <h5>{{ item.subtitle }}</h5>
+                    {{ item.excerpt }}
+                    <div class="collapse" id="collapse-{{ item.title | downcase | replace: " ", "-" }}">
+                        {{ item.content | remove: item.excerpt | markdownify }}
+                    </div>
+                    <p>
+                        {% for about_tag in item.about_tags %}
+                            <span class="badge rounded-pill bg-bluespace badge-about-tag-bluespace">{{ about_tag }}</span>
                         {% endfor %}
-                    </div>
-                    <div class="d-flex col-12 col-md-3 position-relative" id="search-container">
-                        <div class="input-group">
-                            <input class="form-control form-control-ml focus-ring focus-ring-secondary border-end-0 search-bar" id="filter-search-input" type="search" placeholder="Search" aria-label="Search">
-                            <button class="btn btn-search-ml border-start-0 ms-0 search-bar fa-solid fa-magnifying-glass" id="filter-search-submit" type="submit"></button>
-                        </div>
-                        <datalist id="search-tags">
-                            {% for tag in about_tags %}
-                            <option value="{{ tag }}">
-                                {% endfor %}
-                        </datalist>
-                        <div class="list-group-ml d-none" id="search-suggestions"></div>
-                    </div>
-                    <div class="d-flex flex-grow-1 justify-content-center justify-content-md-end">
-                        <a href="/resume/" target="_blank" class="btn btn-outline-ml d-flex flex-nowrap column-gap-1 align-items-center"><span>View</span><span>Resume</span><span class="fa-solid fa-arrow-up-right-from-square"></span></a>
-                    </div>
+                    </p>
+                    <button type="button" class="about-item-expand-button btn btn-no-outline-ml fa-solid fa-chevron-down" data-bs-toggle="collapse" data-bs-target="#collapse-{{ item.title | downcase | replace: " ", "-" }}" aria-expanded="false" aria-controls="collapse-{{ item.title | downcase | replace: " ", "-" }}"></button>
                 </div>
-                <div class="col-xl-8">
-                    <div id="about-cards">
-                        {% for item in site.about_items %}
-                            <div class="about-card p-3 mb-2"
-                            data-category="{{ item.about_category }}"
-                            data-title="{{ item.title | downcase }}"
-                            data-subtitle="{{ item.subtitle | downcase }}"
-                            data-tags="{{ item.about_tags | join: ',' | downcase }}"
-                            data-content="{{ item.content | strip_html | downcase }}">
-                                <h2 class="about-card-title">{{ item.title }}</h2>
-                                <h5>{{ item.subtitle }}</h5>
-                                {{ item.excerpt }}
-                                <div class="collapse" id="collapse-{{ item.title | downcase | replace: " ", "-" }}">
-                                    {{ item.content | remove: item.excerpt | markdownify }}
-                                </div>
-                                <p>
-                                    {% for about_tag in item.about_tags %}
-                                        <span class="badge rounded-pill bg-bluespace badge-about-tag-bluespace">{{ about_tag }}</span>
-                                    {% endfor %}
-                                </p>
-                                <button type="button" class="about-item-expand-button btn btn-no-outline-ml fa-solid fa-chevron-down" data-bs-toggle="collapse" data-bs-target="#collapse-{{ item.title | downcase | replace: " ", "-" }}" aria-expanded="false" aria-controls="collapse-{{ item.title | downcase | replace: " ", "-" }}"></button>
-                            </div>
-                        {% endfor %}
-                        <div class="p-3 row justify-content-center align-items-center gap-4 gx-5 d-none" id="no-results">
-                            <div class="col-md-6 ms-sm-4 text-center text-sm-start overflow-x-hidden" id="text-no-results">
-                                <h2 class="fw-bold">No Results Found</h2>
-                                <p class="fw-light">We scanned the farthest reaches of the digital universe... but found only stardust.
-                                    Try adjusting your search filters; a discovery may still be just a few keystrokes away.</p>
-                            </div>
-                            <div class="col-sm-4 w-auto">
-                                <div id="rocket-no-results">
-                                    {% include shuttle/trail-shuttle.html %}
-                                    {% include shuttle/shuttle.html %}
-                                    {% include shuttle/icon.html %}
-                                </div>
-                            </div>
-                        </div>
+            {% endfor %}
+            <div class="p-3 row justify-content-center align-items-center gap-4 d-none" id="no-results">
+                <div class="col-12 col-lg-6 text-center text-lg-start overflow-x-hidden" id="text-no-results">
+                    <h2 class="fw-bold">No Results Found</h2>
+                    <p class="fw-light">We scanned the farthest reaches of the digital universe... but found only stardust.
+                        Try adjusting your search filters; a discovery may still be just a few keystrokes away.</p>
+                </div>
+                <div class="col-12 col-lg-6 d-flex justify-content-center">
+                    <div id="rocket-no-results">
+                        {% include shuttle/trail-shuttle.html %}
+                        {% include shuttle/shuttle.html %}
+                        {% include shuttle/icon.html %}
                     </div>
                 </div>
             </div>
         </div>
     </div>
-</main>
+</div>

@@ -82,8 +82,8 @@ document.addEventListener('DOMContentLoaded', function () {
     }
 
     // Navbar hide when content scrolls
-    content.addEventListener('scroll', function() {
-        if (content.scrollTop > 0) {
+    window.addEventListener('scroll', function() {
+        if (window.scrollY > 0) {
             navbar.classList.remove('nav-fade-animation');
             navbar.classList.add('nav-scroll');
         } else {
@@ -91,6 +91,15 @@ document.addEventListener('DOMContentLoaded', function () {
             navbar.classList.add('nav-visible');
         }
     });
+
+    // Navbar height variable
+    const set = () => {
+        const height = Math.round(navbar.getBoundingClientRect().height);
+        document.documentElement.style.setProperty('--navbar-height', height + 'px');
+    };
+    new ResizeObserver(set).observe(navbar);
+    addEventListener('load', set, { once: true });
+    addEventListener('resize', set);
 });
 
 // Controls navbar visibility

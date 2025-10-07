@@ -2,7 +2,7 @@ body {
   background-color: $backgroundColor;
   color: $bodyColor;
   font-family: Inter, $bodyFontStack;
-  font-feature-settings: 'liga' 1, 'calt' 1; /* fix for Chrome */
+  font-feature-settings: 'liga' 1, 'calt' 1; // fix for Chrome
 }
 
 @supports (font-variation-settings: normal) {
@@ -12,10 +12,11 @@ body {
 }
 
 #content {
-  position: absolute;
-  z-index: 1;
   transition: opacity 300ms ease-in-out;
-  height: 100vh;
+
+  &:has(> :first-child:not(.h-100)) {
+    padding-top: var(--navbar-height); // Comes from navbar.js calculation
+  }
 }
 
 // Button

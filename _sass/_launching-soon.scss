@@ -1,8 +1,6 @@
 // Launching Soon
 
 #launching-soon-text {
-  max-width: 41em;
-  max-height: 70vh;
   animation: fade-reveal-left 1s ease-in-out;
 }
 
@@ -33,15 +31,14 @@
 
   & .trail-booster {
     filter: blur(1px) drop-shadow(0 0 15px white);
-    width: 100%;
 
     & .trail-stop-start {
       stop-color: #FFFFFF88;
+      animation: trail-smoke 0.1s ease-in-out infinite alternate;
     }
 
     & .trail-stop-end {
-      stop-color: #FFFFFF73;
-      animation: trail-smoke 0.1s infinite alternate;
+      stop-color: #FFFFFF00;
     }
 
     & .trail-path {
@@ -64,7 +61,7 @@
     stop-color: #FFFFFF73;
   }
   to {
-    stop-color: #FFFFFF88;
+    stop-color: #FFFFFF78;
   }
 }
 
