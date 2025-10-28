@@ -37,6 +37,8 @@
 // Navbar toggler button
 #navbar-toggler {
   font-size: x-large;
+  -webkit-text-stroke-width: 2px;
+  -webkit-text-stroke-color: inherit;
   transition: color $transitionNormal ease-in-out, background-color $transitionNormal ease-in-out, border-color $transitionNormal ease-in-out, box-shadow $transitionNormal ease-in-out, opacity 300ms ease-in-out;
 }
 
@@ -119,6 +121,11 @@
   & .offcanvas-body {
     overflow-y: unset;
   }
+}
+
+#offcanvas-close {
+  -webkit-text-stroke-width: 1px;
+  -webkit-text-stroke-color: inherit;
 }
 
 // Nav links

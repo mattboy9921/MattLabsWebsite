@@ -40,7 +40,8 @@ body {
 
   background: none;
   filter: unset !important;
-  font-size: x-large;
+  width: unset !important;
+  height: unset !important;
   transition: color $transitionNormal ease-in-out, opacity $transitionNormal ease-in-out;
 
   &:hover {

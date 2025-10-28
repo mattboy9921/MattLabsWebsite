@@ -41,6 +41,10 @@
 @import "bootstrap/helpers";
 @import "bootstrap/utilities/api";
 
+// Bootstrap Icons
+$bootstrap-icons-font-dir: "/assets/fonts";
+@import "bootstrap/bootstrap-icons/bootstrap-icons";
+
 // Custom code
 @import "custom";
 @import "media-queries";

@@ -1,8 +1,8 @@
 <!-- Navbar -->
 <nav class="navbar navbar-dark nav-ml" id="nav-home">
     <div class="container-fluid">
-        <button class="btn btn-outline-ml py-0 m-2" id="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasNavbar" aria-controls="offcanvasNavbar" aria-label="Toggle navigation">
-            <span class="fa-solid fa-chevron-right"></span>
+        <button class="btn btn-outline-ml px-2 py-0 m-2" id="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasNavbar" aria-controls="offcanvasNavbar" aria-label="Toggle navigation">
+            <span class="bi bi-chevron-right"></span>
         </button>
         <div class="offcanvas offcanvas-nav offcanvas-start" tabindex="-1" id="offcanvasNavbar" data-bs-backdrop="false" data-bs-theme="dark" aria-labelledby="offcanvasNavbarLabel">
             <div class="row d-flex justify-content-center h-100">
@@ -12,7 +12,9 @@
                             <h2 class="offcanvas-title" id="offcanvasNavbarLabel">
                                 <span class="fw-bold">Matt</span><span>Labs</span>
                             </h2>
-                            <button type="button" class="btn-no-outline-ml fa-solid fa-xmark" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+                            <button type="button" class="btn btn-no-outline-ml" id="offcanvas-close" data-bs-dismiss="offcanvas" aria-label="Close">
+                                <span class="bi bi-x-lg fs-4"></span>
+                            </button>
                         </div>
                         <div class="d-flex flex-column h-100" id="offcanvas-body-container">
                             <div class="offcanvas-body flex-grow-1">
@@ -57,10 +59,10 @@
                 </div>
             </div>
         </div>
-        <div class="fs-3 pe-2 d-flex align-items-center" id="socials">
-            <a class="fa-brands fa-github" target="_blank" href="https://github.com/mattboy9921"></a>
-            <a class="fa-brands fa-linkedin" target="_blank" href="https://www.linkedin.com/in/matt-dicristina-909885299"></a>
-            <a class="fa-solid fa-envelope" target="_blank" href="mailto:matt@mattlabs.net"></a>
+        <div class="fs-4 pe-2 d-flex align-items-center" id="socials">
+            <a class="bi bi-github" target="_blank" href="https://github.com/mattboy9921"></a>
+            <a class="bi bi-linkedin" target="_blank" href="https://www.linkedin.com/in/matt-dicristina-909885299"></a>
+            <a class="bi bi-envelope-fill" target="_blank" href="mailto:matt@mattlabs.net"></a>
         </div>
     </div>
 </nav>
