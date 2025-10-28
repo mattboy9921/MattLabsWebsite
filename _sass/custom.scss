@@ -12,7 +12,7 @@ body {
 }
 
 #content {
-  transition: opacity 300ms ease-in-out;
+  transition: opacity 300ms ease-in-out 400ms;
 
   &:has(> :first-child:not(.h-100)) {
     padding-top: var(--navbar-height); // Comes from navbar.js calculation

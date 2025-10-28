@@ -82,6 +82,7 @@
 
 // Hide navbar elements under the offcanvas
 .nav-offcanvas-open-hide {
+  transition: opacity 300ms ease-in-out !important;
   opacity: 0;
 }
 
