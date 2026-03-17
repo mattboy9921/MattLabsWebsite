@@ -68,17 +68,17 @@
 }
 
 #socials a {
-  color: $bodyColor;
+  color: var(--bs-body-color);
   text-decoration: none;
   padding-left: 0.75em;
   transition: color $transitionNormal ease-in-out;
 
   &:hover {
-    color: $danger;
+    color: $ml-primary;
   }
 
   &:active {
-    color: darken($danger, 10%);
+    color: darken($ml-primary, 10%);
   }
 }
 
@@ -97,8 +97,8 @@
   --#{$prefix}offcanvas-transition: #{clip-path 0.6s ease-in-out, transform 0.6s ease-in-out};
 
   width: 100% !important;
-  color: $bodyColor;
-  background-color: rgba($bodyColor, 0.2);
+  color: var(--bs-body-color);
+  background-color: rgba(var(--bs-body-color-rgb), 0.2);
   clip-path: polygon(0 0, 100% 0, 80% 100%, 0 100%);
 
   &.showing,
@@ -132,25 +132,25 @@
 .nav-link-ml {
   @extend .nav-link;
 
-  --#{$prefix}nav-link-color: #{$bodyColor};
+  --#{$prefix}nav-link-color: --bs-body-color;
 
   opacity: 0;
   transform: translateX(-0.5em);
   transition: transform 500ms ease-in-out, color 250ms ease-in-out, opacity 500ms ease-in-out;
 
   &.active {
-    --#{$prefix}navbar-active-color: #{lighten($bodyColor, 20%)};
+    --#{$prefix}navbar-active-color: var(--bs-emphasis-color);
   }
 
   &:hover,
   &:focus {
     transform: scale(102%) !important;
-    color: $danger !important;
+    color: $ml-primary !important;
     transition: transform 250ms ease-in-out;
   }
 
   &:active {
-    color: darken($danger, 10%) !important;
+    color: darken($ml-primary, 10%) !important;
     transition: color $transitionNormal ease-in-out;
   }
 }
@@ -167,20 +167,20 @@
 }
 
 .offcanvas-footer {
-  color: darken($bodyColor, 10%);
+  color: var(--bs-secondary-color);
 
   & a {
-    color: $bodyColor;
+    color: var(--bs-body-color);
     text-decoration: none;
     transition: color $transitionNormal ease-in-out;
 
     &:hover,
     &:focus {
-      color: $danger;
+      color: $ml-primary;
     }
 
     &:active {
-      color: darken($danger, 10%);
+      color: darken($ml-primary, 10%);
     }
   }
 }

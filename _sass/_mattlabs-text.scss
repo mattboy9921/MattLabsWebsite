@@ -35,6 +35,6 @@
 
 @keyframes blink-cursor {
   50% {
-    color: $bodyColor;
+    color: var(--bs-body-color);
   }
 }

@@ -83,20 +83,20 @@ label.btn-outline-ml {
   @media (hover: hover) and (pointer: fine) {
     &:hover {
       color: $black !important;
-      background-color: $danger !important;
+      background-color: $ml-primary !important;
       border-color: transparent !important;
     }
   }
 
   &:active {
     color: $black !important;
-    background-color: darken($danger, 10%) !important;
+    background-color: darken($ml-primary, 10%) !important;
     border-color: transparent !important;
   }
 }
 
 input.btn-check:checked + label.btn-outline-ml {
-  background-color: $danger;
+  background-color: $ml-primary;
 }
 
 .badge-about-tag-bluespace {
@@ -111,12 +111,12 @@ input.btn-check:checked + label.btn-outline-ml {
   @extend .btn;
   @extend .btn-outline-secondary;
 
-  --#{$prefix}btn-bg: #{rgba($bodyColor, 0.2)};
-  --#{$prefix}btn-color: #{$bodyColor};
-  --#{$prefix}btn-hover-color: #{$danger};
-  --#{$prefix}btn-hover-bg: #{rgba($bodyColor, 0.2)};
-  --#{$prefix}btn-active-bg: #{rgba($bodyColor, 0.2)};
-  --#{$prefix}btn-active-color: #{darken($danger, 10%)};
+  --#{$prefix}btn-bg: #{rgba(var(--bs-body-color-rgb), 0.2)};
+  --#{$prefix}btn-color: --bs-body-color;
+  --#{$prefix}btn-hover-color: #{$ml-primary};
+  --#{$prefix}btn-hover-bg: #{rgba(var(--bs-body-color-rgb), 0.2)};
+  --#{$prefix}btn-active-bg: #{rgba(var(--bs-body-color-rgb), 0.2)};
+  --#{$prefix}btn-active-color: #{darken($ml-primary, 10%)};
 }
 
 .input-group {
@@ -125,11 +125,11 @@ input.btn-check:checked + label.btn-outline-ml {
   transition: backdrop-filter 300ms ease-in-out;
 
   &:focus-within {
-    box-shadow: 0 0 0 0.25rem rgba($bodyColor, 0.2);
+    box-shadow: 0 0 0 0.25rem rgba(var(--bs-body-color-rgb), 0.2);
     backdrop-filter: blur(10px);
 
     & .search-bar {
-      border-color: $bodyColor;
+      border-color: var(--bs-body-color-rgb);
       box-shadow: none;
       transition: border-color $transitionNormal ease-in-out;
     }
@@ -159,14 +159,14 @@ input.btn-check:checked + label.btn-outline-ml {
   @extend .list-group;
 
   --#{$prefix}list-group-color: #{$list-group-color};
-  --#{$prefix}list-group-bg: #{rgba($bodyColor, 0.2)};
+  --#{$prefix}list-group-bg: #{rgba(var(--bs-body-color-rgb), 0.2)};
   --#{$prefix}list-group-border-color: transparent;
   --#{$prefix}list-group-action-hover-color: #{$list-group-action-hover-color};
-  --#{$prefix}list-group-action-hover-bg: #{rgba(darken($bodyColor, 30%), 0.2)};
+  --#{$prefix}list-group-action-hover-bg: #{rgba(var(--bs-tertiary-color-rgb), 0.2)};
   --#{$prefix}list-group-action-active-color: #{$list-group-action-active-color};
-  --#{$prefix}list-group-action-active-bg: #{darken($danger, 10%)};
+  --#{$prefix}list-group-action-active-bg: #{darken($ml-primary, 10%)};
   --#{$prefix}list-group-active-color: #{black};
-  --#{$prefix}list-group-active-bg: #{$danger};
+  --#{$prefix}list-group-active-bg: #{$ml-primary};
   --#{$prefix}list-group-active-border-color: transparent;
 
   backdrop-filter: blur(10px);
@@ -272,84 +272,17 @@ mark.search-highlight {
   }
 }
 
-#log-text {
-  font-size: 12px !important;
-  color: $bodyColor;
-}
-
-#log-error {
-  color: $danger;
-}
-
-.nav-pills-ml {
-  @extend .nav-pills;
-
-  --#{$prefix}nav-pills-link-active-color: #{lighten($bodyColor, 10%)};
-  --#{$prefix}nav-pills-link-active-bg: #{$lightSpace};
-
-  & .nav-link {
-    color: $bodyColor;
-    padding: .25rem .5rem;
-    font-size: $font-size-sm;
-    border-radius: $border-radius-sm;
-
-    &:hover {
-      color: lighten($bodyColor, 10%);
-    }
-
-    & .active,
-    .show > .nav-link {
-      color: lighten($bodyColor, 10%);
-    }
-  }
-}
-
-#compile-button {
-  min-width: 34px;
-}
-
-#pdfbox {
-  position: relative;
-  transition: opacity $transitionNormal ease-in-out;
-  z-index: 5;
-}
-
-#pdf-compile-alert {
-  position: absolute;
-  top: 4em;
-  opacity: 0.85;
-  z-index: 5;
-}
-
-#pdf-pregen-alert {
-  position: absolute;
-  bottom: 0;
-  right: 0;
-  opacity: 0.85;
-  margin: 17px;
-  z-index: 5;
-}
-
-.pdf-loading {
-  opacity: 0;
-}
-
-#pdfbox-spinner {
-  z-index: 4;
-  position: absolute;
-}
-
 a {
-  color: shift-color($bodyColor, -100%);
+  color: var(--bs-emphasis-color);
   text-decoration: none;
   transition: color $transitionNormal ease-in-out;
 
   &:hover,
   &:focus {
-    color: $danger;
+    color: $ml-primary;
   }
 
   &:active {
-    color: darken($danger, 10%);
+    color: darken($ml-primary, 10%);
   }
 }

@@ -114,8 +114,8 @@ function updateSearch() {
         // Badges
         const badgeHighlights = card.querySelectorAll(".badge-about-tag-deepdanger");
         badgeHighlights.forEach(badge => {
-            badge.classList.remove("bg-deepdanger", "badge-about-tag-deepdanger");
-            badge.classList.add("bg-bluespace", "badge-about-tag-bluespace");
+            badge.classList.remove("bg-ml-primary-subtle", "text-ml-primary-emphasis");
+            badge.classList.add("bg-bluespace", "text-lightbluespace");
         })
 
         // Highlighting
@@ -128,8 +128,8 @@ function updateSearch() {
                         [...child.children].forEach(grandchild => {
                             if (grandchild.innerText.toLowerCase().includes(searchInput.value.toLowerCase())) {
                                 // Change badge colors
-                                grandchild.classList.remove("bg-bluespace", "badge-about-tag-bluespace");
-                                grandchild.classList.add("bg-deepdanger", "badge-about-tag-deepdanger");
+                                grandchild.classList.remove("bg-bluespace", "text-lightbluespace");
+                                grandchild.classList.add("bg-ml-primary-subtle", "text-ml-primary-emphasis");
                             }
                         });
                     }

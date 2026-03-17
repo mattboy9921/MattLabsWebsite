@@ -1,6 +1,5 @@
 body {
-  background-color: $backgroundColor;
-  color: $bodyColor;
+  //background-color: var(--bs-bg-color);
   font-family: Inter, $bodyFontStack;
   font-feature-settings: 'liga' 1, 'calt' 1; // fix for Chrome
 }
@@ -24,19 +23,21 @@ body {
   @extend .btn;
   @extend .btn-outline-secondary;
 
-  --#{$prefix}btn-color: #{$bodyColor};
-  --#{$prefix}btn-hover-bg: #{$danger};
+  --#{$prefix}btn-color: --bs-body-color;
+  --#{$prefix}btn-hover-bg: #{$ml-primary};
   --#{$prefix}btn-hover-border-color: transparent;
-  --#{$prefix}btn-active-bg: #{darken($danger, 10%)};
+  --#{$prefix}btn-hover-color: black;
+  --#{$prefix}btn-active-bg: #{darken($ml-primary, 10%)};
   --#{$prefix}btn-active-border-color: transparent;
+  --#{$prefix}btn-active-color: black;
 }
 
 .btn-no-outline-ml {
   @extend .btn-close;
 
-  --#{$prefix}btn-close-color: #{$bodyColor};
+  --#{$prefix}btn-close-color: --bs-body-color;
   --#{$prefix}btn-close-hover-opacity: 100%;
-  --#{$prefix}btn-close-focus-shadow: 0 0 0 0.25rem rgba($bodyColor, 0.25);
+  --#{$prefix}btn-close-focus-shadow: 0;
 
   background: none;
   filter: unset !important;
@@ -45,11 +46,87 @@ body {
   transition: color $transitionNormal ease-in-out, opacity $transitionNormal ease-in-out;
 
   &:hover {
-    --#{$prefix}btn-close-color: #{$danger};
+    --#{$prefix}btn-close-color: #{$ml-primary};
   }
 
   &:active {
-    --#{$prefix}btn-close-color: #{darken($danger, 10%)};
+    --#{$prefix}btn-close-color: #{darken($ml-primary, 10%)};
+  }
+}
+
+// Shuttle
+// Boosters
+.boosters {
+  // Fuel Tank
+  .fuel-tank-fill {
+    fill: $ml-primary;
+  }
+  .cap-fill {
+    fill: #00000022;
+  }
+  .fuel-tank-curve-shadow-fill {
+    fill: #00000011;
+  }
+  // Boosters
+  .boosters-fill {
+    fill: whitesmoke;
+  }
+  .accents-fill {
+    fill: lightgray;
+  }
+  .boosters-curve-shadow-fill {
+    fill: #00000011;
+  }
+  .thrusters-fill {
+    fill: darkgray;
+  }
+  .thrusters-curve-shadow-fill {
+    fill: #00000011;
+  }
+}
+
+// Icon
+.icon .icon-fill {
+  fill: $ml-primary;
+}
+
+// Shuttle
+.shuttle {
+  .lower-wing-fill {
+    fill: dimgray;
+  }
+  .upper-wing-fill {
+    fill: gainsboro;
+  }
+  .wing-curve-shadow-fill {
+    fill: #00000011;
+  }
+  .hull-fill {
+    fill: white;
+  }
+  .hull-shadow-fill {
+    fill: whitesmoke;
+  }
+  .window-fill {
+    fill: lightslategray;
+  }
+  .window-highlight-fill {
+    fill: #FFFFFFCC;
+  }
+  .hull-curve-shadow-fill {
+    fill: #00000011;
+  }
+  .lower-engine-fill {
+    fill: gray;
+  }
+  .upper-engine-fill {
+    fill: darkgray;
+  }
+  .engine-curve-shadow-fill {
+    fill: #00000011;
+  }
+  .fin-fill {
+    fill: $ml-primary;
   }
 }
 
@@ -57,17 +134,17 @@ body {
 .form-control-ml {
   @extend .form-control;
 
-  color: $bodyColor;
-  background-color: rgba($bodyColor, 0.2);
+  color: var(--bs-body-color);
+  background-color: rgba(var(--bs-body-color-rgb), 0.2);
   border-color: $secondary;
 
   &:focus {
-    color: $bodyColor;
-    background-color: rgba($bodyColor, 0.2);
+    color: var(--bs-body-color);
+    background-color: rgba(var(--bs-body-color-rgb), 0.2);
   }
 
   &::placeholder {
-    color: $bodyColor;
+    color: var(--bs-body-color);
   }
 }
 

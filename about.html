@@ -7,7 +7,7 @@ permalink: /about/
 <script src="/assets/js/about-card.js" defer></script>
 <div id="about-container" class="d-flex flex-column flex-nowrap align-items-center justify-content-center">
     <div class="p-3 w-100">
-        <p class="display-1 fw-bold text-danger">About</p>
+        <p class="display-1 fw-bold text-ml-primary">About</p>
         {% capture about-text %}{% include about.md %}{% endcapture %}
         {{ about-text | markdownify }}
     </div>
@@ -60,7 +60,7 @@ permalink: /about/
                     </div>
                     <p>
                         {% for about_tag in item.about_tags %}
-                            <span class="badge rounded-pill bg-bluespace badge-about-tag-bluespace">{{ about_tag }}</span>
+                            <span class="badge rounded-pill bg-bluespace text-lightbluespace">{{ about_tag }}</span>
                         {% endfor %}
                     </p>
                     <button type="button" class="about-item-expand-button btn btn-no-outline-ml bi bi-chevron-down" data-bs-toggle="collapse" data-bs-target="#collapse-{{ item.title | downcase | replace: " ", "-" }}" aria-expanded="false" aria-controls="collapse-{{ item.title | downcase | replace: " ", "-" }}"></button>
