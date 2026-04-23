@@ -1,0 +1,12 @@
+{% if jekyll.environment contains "dev" %}
+    <!-- Live reload -->
+    <script>
+        window.LiveReloadOptions = {
+            https: true,
+            host: window.location.hostname,
+            port: window.location.port || 443,
+            snipver: 1
+        };
+    </script>
+    <script src="/livereload.js?snipver=1"></script>
+{% endif %}
