@@ -1,45 +1,52 @@
 // Adjustments to prevent motion
 @media (prefers-reduced-motion: reduce) {
 
+  // Stars static, avoid parallax
   #stars1,
   #stars2,
-  #stars3,
-  #matt-text,
-  #labs-text,
-  #labs-text::before,
-  #labs-text::after,
-  #navbar-toggler {
+  #stars3 {
     animation: none;
   }
 
-  #nav-home,
-  #socials,
-  #socials a,
-  #socials a:hover,
-  #socials a:active,
-  #navbar-toggler,
-  #content,
-  .nav-link-ml,
-  .nav-link-ml:hover,
-  .nav-link-ml:active,
-  .nav-search {
+  // Navbar toggler avoid jumping
+  .navbar-toggler-bounce {
+    animation: none;
+  }
+
+  // Navbar offcanvas fade, avoid wipe
+  .offcanvas-nav {
+    opacity: 0;
+    --#{$prefix}offcanvas-transition: #{opacity 0.6s ease-in-out} !important;
+    transition: opacity 0.6s ease-in-out !important;
+    clip-path: none !important;
+
+    &.showing,
+    &.show {
+      opacity: 1;
+      transition: opacity 0.6s ease-in-out, transform 0s !important;
+    }
+
+    &.hiding {
+      opacity: 0;
+      transition: opacity 0.6s ease-in-out, transform 0s 0.6s !important;
+    }
+  }
+
+  // Launching soon rocket stationary, avoid repeating motion
+  #rocket-ls .boosters,
+  #rocket-ls .shuttle,
+  #rocket-ls .icon {
+    animation: none;
+  }
+
+  // Launching soon rocket trails slow fade, avoid rapid blinking
+  #rocket-ls .trail-booster .trail-stop-start {
+    animation: trail-smoke 1s ease-in-out infinite alternate;
+  }
+
+  // About card filter transition
+  .about-card {
     transition: none;
-  }
-
-  #labs-text::before {
-    content: "Labs";
-  }
-
-  #labs-text::after {
-    content: "";
-  }
-
-  #sub-text {
-    animation: fade-reveal 0s 0s backwards;
-  }
-
-  #nav-home {
-    opacity: 1;
   }
 }
 
