@@ -1,0 +1,30 @@
+// Custom variables
+
+// Colors
+$space: #141525;
+$lightSpace: shift-color($space, -15%);
+$deepSpace: shift-color($space, -5%);
+$blueSpace: lighten($space, 15%);
+$lightBlueSpace: lighten($blueSpace, 45%);
+$ml-primary: #DC3545FF;
+
+$backgroundColor: $space;
+$gradientColor: #2C2D44;
+$custom-body-color-dark: #cfd1de;
+
+// Variable Overrides
+$body-color-dark: $custom-body-color-dark;
+$body-secondary-color-dark: darken($body-color-dark, 10%);
+$body-tertiary-color-dark: darken($body-color-dark, 30%);
+$body-emphasis-color-dark: lighten($body-color-dark, 20%);
+
+$body-bg-dark: $space;
+
+$min-contrast-ratio: 4.4;
+
+// Timing
+$transitionNormal: 150ms;
+
+// Fonts
+$bodyFontStack: $font-family-sans-serif;
+$monospaceFontStack: $font-family-monospace;

@@ -1,0 +1,23 @@
+---
+layout: none
+title: "Redirecting to Resume"
+permalink: /resume/
+---
+<!DOCTYPE html>
+<html lang="{{ site.lang | default: "en-US" }}">
+<head>
+    <meta http-equiv="refresh" content="0; url=/assets/Matt_DiCristina_Resume.pdf" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta charset="utf-8">
+    <title>{{ page.title }} - {{ site.title }}</title>
+    <link rel="stylesheet" href="{{ "/assets/css/main.css" | relative_url }}">
+    <script src="/assets/js/bootstrap/bootstrap.min.js"></script>
+    <script src="/assets/js/fade-out.js"></script>
+</head>
+<body>
+    {% include fader.html %}
+    {% include stars-background.html %}
+    <p>Redirecting to the document... <a href="/assets/Matt_DiCristina_Resume.pdf">Click here if not redirected</a>.</p>
+    {% include dev-tag.html %}
+</body>
+</html>

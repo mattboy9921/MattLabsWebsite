@@ -6,6 +6,10 @@ source "https://rubygems.org"
 
 gem "jekyll", "~> 4.3"
 
-gem 'jekyll-admin', group: :jekyll_plugins
-gem 'jekyll-seo-tag'
-gem 'jekyll-sitemap'
+gem "jekyll-admin", group: :jekyll_plugins
+gem "rackup"
+gem "jekyll-seo-tag"
+gem "jekyll-sitemap"
+gem "jekyll-http-request"
+gem "jekyll-latex"
+gem "jekyll-include-raw"

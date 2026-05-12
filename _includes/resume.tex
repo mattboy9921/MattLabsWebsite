@@ -1,0 +1,139 @@
+\documentclass[letterpaper]{article}
+
+% Use geometry package to define margins and use minipage
+\usepackage[margin=1em]{geometry}
+% No indent
+\setlength{\parindent}{0pt}
+
+% Use tcolorboxpackage to create the colored sidebar
+\usepackage{tcolorbox}
+
+% Use enumitem to get better alignment for bullet lists
+\usepackage{enumitem}
+
+% Use xcolor to define custom hex colors
+\usepackage{xcolor}
+\definecolor{sidebar}{HTML}{f0f2f4}
+\definecolor{accent}{HTML}{3359aa}
+
+% Fonts
+\usepackage[sfdefault]{roboto}
+\usepackage{fontawesome5}
+
+\title{Resume}
+\author{mattboy9921}
+\date{October 2023}
+
+\begin{document}
+
+    % Create a minipage with the width of the sidebar
+    \begin{minipage}{0.3\textwidth}
+        % Create the background of the sidebar
+        \begin{tcolorbox}[colback=sidebar, frame empty, sharp corners=all]
+            % Create a minipage with the full height of the document
+            \begin{minipage}[t][0.973\textheight]{1.0\textwidth}
+                \vspace{0.05\textheight}
+                \textcolor{accent}{\textbf{{\Huge Matt}}}
+
+                \vspace{0.01\textheight}
+                \textcolor{accent}{\textbf{{\Huge DiCristina}}}
+
+                \vspace{0.03\textheight}
+                \makebox[1.5em][c]{\faMapMarker}\ Connecticut
+
+                \makebox[1.5em][c]{\faEnvelope}\ matt@mattlabs.net
+
+                \makebox[1.5em][c]{\faGlobe}\ https://mattlabs.net
+
+                \vspace{0.02\textheight}
+                \begin{flushleft}
+                    Self taught programmer, systems administrator and self hosting nerd. Experienced in object oriented programming using VCS and CI.
+                    Creator of game server plugins used on hundreds of servers. Runs a homelab of enterprise server hardware with high availability Proxmox cluster and Ceph storage.
+                    Linux lover and script monkey. Always looking for ways to be more efficient.
+                \end{flushleft}
+
+                \vspace{0.02\textheight}
+                \textcolor{accent}{\textbf{{\Large Key Skills}}}
+                \begin{flushleft}
+                    \begin{itemize}[leftmargin=1em, label=\textcolor{accent}{\textbullet}]
+                        \item Systems Administration
+                        \item Linux
+                        \item Java
+                        \item Bash, PowerShell, Python Scripting
+                        \item Windows, Active Directory, Azure
+                        \item HTML, CSS, JavaScript
+                        \item Networking
+                        \item VCS, CI/CD
+                    \end{itemize}
+                \end{flushleft}
+            \end{minipage}
+        \end{tcolorbox}
+    \end{minipage}
+    % Create a minipage with the width of the right side
+    \begin{minipage}{0.7\textwidth}
+        \begin{tcolorbox}[colback=sidebar!0, frame empty, sharp corners=all, left=1em]
+            % Create a minipage with the full height of the document
+            \begin{minipage}[t][0.973\textheight]{1.0\textwidth}
+                \vspace{0.01\textheight}
+                \textcolor{accent}{\textbf{{\Large Professional Experience}}}
+
+                \vspace{0.02\textheight}
+                {\large IT Administrator}
+
+                \textit{Municipal Emergency Services, Inc.} | \textit{December 2020 - Present}
+                \begin{flushleft}
+                    \begin{itemize}[leftmargin=1em, label=\textcolor{accent}{\textbullet}]
+                        \item Supported 600+ remote employees with IT solutions via phone and email
+                        \item Streamlined user and workstation imaging/setup and management strategies
+                        \item Managed a custom, in place migration from on premise Active Directory to Azure Active Directory
+                        \item Provided support and configuration of NetSuite ERP system
+                        \item Custom PowerShell scripting for Intune app deployment and system configuration
+                    \end{itemize}
+                \end{flushleft}
+
+                \vspace{0.02\textheight}
+                {\large IT Technician}
+
+                \textit{The Taunton Press} | \textit{May 2015 - August 2019}
+                \begin{flushleft}
+                    \begin{itemize}[leftmargin=1em, label=\textcolor{accent}{\textbullet}]
+                        \item Supported 200 employees across campus via in person and remote assistance
+                        \item Migrated a legacy PBX phone system to VoIP
+                        \item Setup of workstations with WDS and accounts with Active Directory
+                        \item Management of workstation software via WSUS and SCCM
+                        \item Maintenance of enterprise server equipment both on premise and at co-locations
+                    \end{itemize}
+                \end{flushleft}
+
+                \vspace{0.02\textheight}
+                {\large IT, Web, Media}
+
+                \textit{Integrated Mental Health Services} | \textit{October 2017 - January 2018}
+                \begin{flushleft}
+                    \begin{itemize}[leftmargin=1em, label=\textcolor{accent}{\textbullet}]
+                        \item Scripted tools to scrape Etsy store data for migration to Wix store
+                        \item Configured Wix eCommerce site as business landing page
+                        \item Managed social media presence and business profiles
+                        \item Consulting for IT related projects and technology upgrades
+                    \end{itemize}
+                \end{flushleft}
+
+                \vspace{0.05\textheight}
+                \textcolor{accent}{\textbf{{\Large Education}}}
+
+                \vspace{0.02\textheight}
+                {\large Bachelors in Computer Science}
+
+                \textit{Southern New Hampshire University, Manchester, NH} | \textit{July 2019 - Present}
+
+                \vspace{0.05\textheight}
+                \textcolor{accent}{\textbf{{\Large Interests}}}
+                \begin{flushleft}
+                    Maintaining a home server network (homelab). Home networking and automation with IoT. 3D printing and small electronics.
+                    Car enthusiast and car modification/restoration. Gaming. Software engineering and coding.
+                \end{flushleft}
+            \end{minipage}
+        \end{tcolorbox}
+    \end{minipage}
+
+\end{document}

@@ -3,6 +3,7 @@
 _site
 _posts
 _drafts
+_about_items
 .sass-cache
 .jekyll-cache
 .jekyll-metadata

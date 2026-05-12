@@ -1,0 +1,46 @@
+// Fader
+
+#fader {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 999999;
+
+  pointer-events: none;
+
+  background: $backgroundColor;
+  backdrop-filter: blur(5px);
+
+  animation-duration: 300ms;
+  animation-timing-function: ease-in-out;
+}
+
+#fader.fader-fade-out {
+  opacity: 0;
+  animation-name: fader-fade-out;
+}
+
+#fader.fader-fade-in {
+  opacity: 1;
+  animation-name: fader-fade-in;
+}
+
+@keyframes fader-fade-out {
+  from {
+    opacity: 1;
+  }
+  to {
+    opacity: 0;
+  }
+}
+
+@keyframes fader-fade-in {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}

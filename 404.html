@@ -1,0 +1,25 @@
+---
+layout: default
+title: "Page Not Found"
+description: "Looks like you are lost"
+---
+<div class="row h-100 row-gap-5 justify-content-center align-items-center align-content-center overflow-y-hidden">
+    <div class="col-12 col-md-6 text-center text-md-start overflow-x-hidden" id="text-404">
+        <p class="lh-1 display-1 fw-medium"><span class="fw-bold text-ml-primary">Error 404</span><br>
+            Page Not Found
+        </p>
+        <p class="h5 fw-light">It appears the page you're searching for has wandered off into the vast
+            expanse of cyberspace, leaving you adrift in your digital space shuttle. Fear not, for even
+            amidst the boundless reaches of the internet, a guiding light awaits your discovery.</p>
+        <div class="mt-5 d-flex justify-content-center">
+            <a type="button" class="btn btn-outline-ml btn-lg" href="/">Return Home</a>
+        </div>
+    </div>
+    <div class="col-12 col-md-6 d-flex justify-content-center">
+        <div id="rocket-404">
+            {% include shuttle/trail-shuttle.html %}
+            {% include shuttle/shuttle.html %}
+            {% include shuttle/icon.html %}
+        </div>
+    </div>
+</div>

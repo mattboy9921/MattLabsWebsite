@@ -1,0 +1,186 @@
+// Navbar
+
+.nav-ml {
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 5;
+  width: 100%;
+  opacity: 0;
+  transition: opacity $transitionNormal, transform $transitionNormal ease-in-out;
+
+  &:hover {
+    opacity: 1;
+  }
+}
+
+.nav-fade-animation {
+  animation: fade-reveal-nav 1s forwards;
+}
+
+.nav-visible {
+  opacity: 1;
+}
+
+@keyframes fade-reveal-nav {
+  to {
+    opacity: 1;
+  }
+}
+
+.nav-scroll {
+  opacity: 0 !important;
+  pointer-events: none;
+  transform: translateY(-0.3em);
+}
+
+// Navbar toggler button
+#navbar-toggler {
+  font-size: x-large;
+  -webkit-text-stroke-width: 2px;
+  -webkit-text-stroke-color: inherit;
+  transition: color $transitionNormal ease-in-out, background-color $transitionNormal ease-in-out, border-color $transitionNormal ease-in-out, box-shadow $transitionNormal ease-in-out, opacity 300ms ease-in-out;
+}
+
+.navbar-toggler-bounce {
+  animation: bounce 2s 1s 2;
+
+  &:hover {
+    animation-play-state: paused;
+  }
+}
+
+@keyframes bounce {
+  0%, 20%, 50%, 80%, 100% {
+    transform: translateX(0);
+  }
+  40% {
+    transform: translateX(30px);
+  }
+  60% {
+    transform: translateX(15px);
+  }
+}
+
+// Social links
+#socials {
+  transition: opacity 300ms ease-in-out;
+}
+
+#socials a {
+  color: var(--bs-body-color);
+  text-decoration: none;
+  padding-left: 0.75em;
+  transition: color $transitionNormal ease-in-out;
+
+  &:hover {
+    color: $ml-primary;
+  }
+
+  &:active {
+    color: darken($ml-primary, 10%);
+  }
+}
+
+// Hide navbar elements under the offcanvas
+.nav-offcanvas-open-hide {
+  transition: opacity 300ms ease-in-out !important;
+  opacity: 0;
+}
+
+// Offcanvas
+
+// Main offcanvas
+.offcanvas-nav {
+  @extend .offcanvas;
+
+  --#{$prefix}offcanvas-transition: #{clip-path 0.6s ease-in-out, transform 0.6s ease-in-out};
+
+  width: 100% !important;
+  color: var(--bs-body-color);
+  background-color: rgba(var(--bs-body-color-rgb), 0.2);
+  clip-path: polygon(0 0, 100% 0, 80% 100%, 0 100%);
+
+  &.showing,
+  &.show:not(.hiding) {
+    clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%);;
+  }
+
+  &.hiding {
+    clip-path: polygon(0 0, 80% 0, 100% 100%, 0 100%);
+  }
+}
+
+#offcanvas-menu-container {
+  width: 800px;
+}
+
+#offcanvas-body-container {
+  overflow-y: auto;
+
+  & .offcanvas-body {
+    overflow-y: unset;
+  }
+}
+
+#offcanvas-close {
+  -webkit-text-stroke-width: 1px;
+  -webkit-text-stroke-color: inherit;
+}
+
+// Nav links
+.nav-link-ml {
+  @extend .nav-link;
+
+  --#{$prefix}nav-link-color: --bs-body-color;
+
+  opacity: 0;
+  transform: translateX(-0.5em);
+  transition: transform 500ms ease-in-out, color 250ms ease-in-out, opacity 500ms ease-in-out;
+
+  &.active {
+    --#{$prefix}navbar-active-color: var(--bs-emphasis-color);
+  }
+
+  &:hover,
+  &:focus {
+    transform: scale(102%) !important;
+    color: $ml-primary !important;
+    transition: transform 250ms ease-in-out;
+  }
+
+  &:active {
+    color: darken($ml-primary, 10%) !important;
+    transition: color $transitionNormal ease-in-out;
+  }
+}
+
+.nav-search {
+  opacity: 0;
+  transform: translateY(0.1em);
+  transition: transform 500ms ease-in-out, opacity 500ms ease-in-out;
+}
+
+.nav-link-visible {
+  opacity: 1;
+  transform: translate(0);
+}
+
+.offcanvas-footer {
+  color: var(--bs-secondary-color);
+
+  & a {
+    color: var(--bs-body-color);
+    text-decoration: none;
+    transition: color $transitionNormal ease-in-out;
+
+    &:hover,
+    &:focus {
+      color: $ml-primary;
+    }
+
+    &:active {
+      color: darken($ml-primary, 10%);
+    }
+  }
+}

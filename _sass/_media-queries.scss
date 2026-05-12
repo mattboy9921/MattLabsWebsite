@@ -1,0 +1,62 @@
+// Adjustments to prevent motion
+@media (prefers-reduced-motion: reduce) {
+
+  // Stars static, avoid parallax
+  #stars1,
+  #stars2,
+  #stars3 {
+    animation: none;
+  }
+
+  // Navbar toggler avoid jumping
+  .navbar-toggler-bounce {
+    animation: none;
+  }
+
+  // Navbar offcanvas fade, avoid wipe
+  .offcanvas-nav {
+    opacity: 0;
+    --#{$prefix}offcanvas-transition: #{opacity 0.6s ease-in-out} !important;
+    transition: opacity 0.6s ease-in-out !important;
+    clip-path: none !important;
+
+    &.showing,
+    &.show {
+      opacity: 1;
+      transition: opacity 0.6s ease-in-out, transform 0s !important;
+    }
+
+    &.hiding {
+      opacity: 0;
+      transition: opacity 0.6s ease-in-out, transform 0s 0.6s !important;
+    }
+  }
+
+  // Launching soon rocket stationary, avoid repeating motion
+  #rocket-ls .boosters,
+  #rocket-ls .shuttle,
+  #rocket-ls .icon {
+    animation: none;
+  }
+
+  // Launching soon rocket trails slow fade, avoid rapid blinking
+  #rocket-ls .trail-booster .trail-stop-start {
+    animation: trail-smoke 1s ease-in-out infinite alternate;
+  }
+
+  // About card filter transition
+  .about-card {
+    transition: none;
+  }
+}
+
+// Adjust small stars border radius for zoom level
+@media (min-resolution: 1.5dppx) {
+  #stars1 {
+    border-radius: 0.5px;
+
+    &:after {
+      border-radius: 0.5px;
+    }
+  }
+}

@@ -1,16 +1,7 @@
-// Fonts
-$bodyFontStack: -apple-system,BlinkMacSystemFont,"Segoe UI",Helvetica,Arial,sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol";
-$font-family-monospace: 'JetBrains Mono', ui-monospace, 'Cascadia Code', 'Source Code Pro', Menlo, Consolas, 'DejaVu Sans Mono', monospace;
-
-$backgroundColor: #141525;
-$gradientColor: #2C2D44;
-$bodyColor: #cfd1de;
-
 body {
-  background-color: $backgroundColor;
-  color: $bodyColor;
+  //background-color: var(--bs-bg-color);
   font-family: Inter, $bodyFontStack;
-  font-feature-settings: 'liga' 1, 'calt' 1; /* fix for Chrome */
+  font-feature-settings: 'liga' 1, 'calt' 1; // fix for Chrome
 }
 
 @supports (font-variation-settings: normal) {
@@ -19,113 +10,145 @@ body {
   }
 }
 
-// Stars background
-
-#gradient {
-  height: 100vh;
-  width: 100vw;
-  background-image: radial-gradient(ellipse at bottom, $gradientColor 0%, #00000000 70%);
-  overflow: hidden;
-  position: absolute;
-  z-index: -100;
-}
-
-// Creates $n number of box shadows for a div
-@function multipleBoxShadow($n) {
-  $value: '#{random() * 100}vw #{random() * 100}vh rgba(255, 255, 255, #{random()})';
-  @for $i from 2 through $n {
-    $value: '#{$value} , #{random() * 100}vw #{random() * 100}vh rgba(255, 255, 255, #{random()})'
-  }
-  @return unquote($value)
-}
-
-// Number of stars for each layer
-$shadowsSmall: multipleBoxShadow(300);
-$shadowsMedium: multipleBoxShadow(100);
-$shadowsLarge: multipleBoxShadow(50);
-
-#stars1 {
-  width: 1px;
-  height: 1px;
-  background: transparent;
-  box-shadow: $shadowsSmall;
-  animation: animStar 150s linear infinite;
-
-  &:after {
-    content: " ";
-    position: absolute;
-    top: 100vh;
-    width: 1px;
-    height: 1px;
-    background: transparent;
-    box-shadow: $shadowsSmall;
-  }
-}
-
-#stars2 {
-  width: 2px;
-  height: 2px;
-  border-radius: 1px;
-  background: transparent;
-  box-shadow: $shadowsMedium;
-  animation: animStar 100s linear infinite;
-
-  &:after {
-    content: " ";
-    position: absolute;
-    top: 100vh;
-    width: 2px;
-    height: 2px;
-    border-radius: 1px;
-    background: transparent;
-    box-shadow: $shadowsMedium;
-  }
-}
-
-#stars3 {
-  width: 3px;
-  height: 3px;
-  border-radius: 1.5px;
-  background: transparent;
-  box-shadow: $shadowsLarge;
-  animation: animStar 50s linear infinite;
-
-  &:after {
-    content: " ";
-    position: absolute;
-    top: 100vh;
-    width: 3px;
-    height: 3px;
-    border-radius: 1.5px;
-    background: transparent;
-    box-shadow: $shadowsLarge;
-  }
-}
-
-@keyframes animStar {
-  from {
-    transform: translateY(0vh);
-  }
-  to {
-    transform: translateY(-100vh);
-  }
-}
-
 #content {
-  position: absolute;
-  z-index: 1;
+  transition: opacity 300ms ease-in-out 400ms;
+
+  &:has(> :first-child:not(.h-100)) {
+    padding-top: var(--navbar-height); // Comes from navbar.js calculation
+  }
 }
 
-// Matt Effect
+// Button
+.btn-outline-ml {
+  @extend .btn;
+  @extend .btn-outline-secondary;
 
-#matt-text {
-  animation: fade-reveal 1s 1s backwards;
+  --#{$prefix}btn-color: --bs-body-color;
+  --#{$prefix}btn-hover-bg: #{$ml-primary};
+  --#{$prefix}btn-hover-border-color: transparent;
+  --#{$prefix}btn-hover-color: black;
+  --#{$prefix}btn-active-bg: #{darken($ml-primary, 10%)};
+  --#{$prefix}btn-active-border-color: transparent;
+  --#{$prefix}btn-active-color: black;
 }
 
-#sub-text {
-  animation: fade-reveal 1s 6s backwards;
+.btn-no-outline-ml {
+  @extend .btn-close;
+
+  --#{$prefix}btn-close-color: --bs-body-color;
+  --#{$prefix}btn-close-hover-opacity: 100%;
+  --#{$prefix}btn-close-focus-shadow: 0;
+
+  background: none;
+  filter: unset !important;
+  width: unset !important;
+  height: unset !important;
+  transition: color $transitionNormal ease-in-out, opacity $transitionNormal ease-in-out;
+
+  &:hover {
+    --#{$prefix}btn-close-color: #{$ml-primary};
+  }
+
+  &:active {
+    --#{$prefix}btn-close-color: #{darken($ml-primary, 10%)};
+  }
 }
 
+// Shuttle
+// Boosters
+.boosters {
+  // Fuel Tank
+  .fuel-tank-fill {
+    fill: $ml-primary;
+  }
+  .cap-fill {
+    fill: #00000022;
+  }
+  .fuel-tank-curve-shadow-fill {
+    fill: #00000011;
+  }
+  // Boosters
+  .boosters-fill {
+    fill: whitesmoke;
+  }
+  .accents-fill {
+    fill: lightgray;
+  }
+  .boosters-curve-shadow-fill {
+    fill: #00000011;
+  }
+  .thrusters-fill {
+    fill: darkgray;
+  }
+  .thrusters-curve-shadow-fill {
+    fill: #00000011;
+  }
+}
+
+// Icon
+.icon .icon-fill {
+  fill: $ml-primary;
+}
+
+// Shuttle
+.shuttle {
+  .lower-wing-fill {
+    fill: dimgray;
+  }
+  .upper-wing-fill {
+    fill: gainsboro;
+  }
+  .wing-curve-shadow-fill {
+    fill: #00000011;
+  }
+  .hull-fill {
+    fill: white;
+  }
+  .hull-shadow-fill {
+    fill: whitesmoke;
+  }
+  .window-fill {
+    fill: lightslategray;
+  }
+  .window-highlight-fill {
+    fill: #FFFFFFCC;
+  }
+  .hull-curve-shadow-fill {
+    fill: #00000011;
+  }
+  .lower-engine-fill {
+    fill: gray;
+  }
+  .upper-engine-fill {
+    fill: darkgray;
+  }
+  .engine-curve-shadow-fill {
+    fill: #00000011;
+  }
+  .fin-fill {
+    fill: $ml-primary;
+  }
+}
+
+// Forms
+.form-control-ml {
+  @extend .form-control;
+
+  color: var(--bs-body-color);
+  background-color: rgba(var(--bs-body-color-rgb), 0.2);
+  border-color: $secondary;
+
+  &:focus {
+    color: var(--bs-body-color);
+    background-color: rgba(var(--bs-body-color-rgb), 0.2);
+  }
+
+  &::placeholder {
+    color: var(--bs-body-color);
+  }
+}
+
+// Animations
 @keyframes fade-reveal {
   from {
     transform: translateY(.1em);
@@ -133,54 +156,29 @@ $shadowsLarge: multipleBoxShadow(50);
   }
 }
 
-// Labs Text Type Effect
-
-#labs-text::before {
-  content: "";
-  animation: typing 1s 3s forwards;
-}
-
-#labs-text::after {
-  content: "_";
-  display: inline-block;
-  width: 0;
-  color: transparent;
-  animation: blink-cursor .5s step-end 2s 8 alternate;
-}
-
-// Don't show the typing animation
-@media (prefers-reduced-motion) {
-
-  #labs-text::before {
-    content: "Labs";
-    animation: none;
-  }
-
-  #labs-text {
-    animation: fade-reveal 1s 1s backwards;
-  }
-
-  #labs-text::after {
-    content: "";
-    animation: none;
-  }
-
-  // Adjust timing of subtext without typing animation
-  #sub-text {
-    animation: fade-reveal 1s 2s backwards;
+@keyframes fade-reveal-left {
+  from {
+    transform: translateX(-1em);
+    opacity: 0;
   }
 }
 
-@keyframes typing {
-  0% { content: ""}
-  25% { content: "L"}
-  50% { content: "La"}
-  75% { content: "Lab"}
-  100% { content: "Labs"}
-}
+// Common
+@import "stars-background";
+@import "nav";
+@import "fader";
 
-@keyframes blink-cursor {
-  50% {
-    color: $bodyColor;
-  }
-}
+// Launching Soon
+@import "launching-soon";
+
+// 404
+@import "404";
+
+// Home
+@import "mattlabs-text";
+
+// About
+@import "about";
+
+// Dev tag
+@import "dev-tag";
