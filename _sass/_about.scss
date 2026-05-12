@@ -129,7 +129,7 @@ input.btn-check:checked + label.btn-outline-ml {
     backdrop-filter: blur(10px);
 
     & .search-bar {
-      border-color: var(--bs-body-color-rgb);
+      border-color: rgba(var(--bs-body-color-rgb));
       box-shadow: none;
       transition: border-color $transitionNormal ease-in-out;
     }
