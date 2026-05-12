@@ -55,7 +55,7 @@ permalink: /about/
                     <h2 class="about-card-title">{{ item.title }}</h2>
                     <h5>{{ item.subtitle }}</h5>
                     {{ item.excerpt }}
-                    <div class="collapse" id="collapse-{{ item.title | downcase | replace: " ", "-" }}">
+                    <div class="collapse" id="collapse-{{ item.title | slugify }}">
                         {{ item.content | remove: item.excerpt | markdownify }}
                     </div>
                     <p>
@@ -63,7 +63,7 @@ permalink: /about/
                             <span class="badge rounded-pill bg-bluespace text-lightbluespace">{{ about_tag }}</span>
                         {% endfor %}
                     </p>
-                    <button type="button" class="about-item-expand-button btn btn-no-outline-ml bi bi-chevron-down" data-bs-toggle="collapse" data-bs-target="#collapse-{{ item.title | downcase | replace: " ", "-" }}" aria-expanded="false" aria-controls="collapse-{{ item.title | downcase | replace: " ", "-" }}"></button>
+                    <button type="button" class="about-item-expand-button btn btn-no-outline-ml bi bi-chevron-down" data-bs-toggle="collapse" data-bs-target="#collapse-{{ item.title | slugify }}" aria-expanded="false" aria-controls="collapse-{{ item.title | slugify }}"></button>
                 </div>
             {% endfor %}
             <div class="p-3 row justify-content-center align-items-center gap-4 d-none" id="no-results">
