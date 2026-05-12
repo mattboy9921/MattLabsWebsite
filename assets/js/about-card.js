@@ -112,7 +112,7 @@ function updateSearch() {
             parent.replaceChild(document.createTextNode(mark.textContent), mark);
         });
         // Badges
-        const badgeHighlights = card.querySelectorAll(".badge-about-tag-deepdanger");
+        const badgeHighlights = card.querySelectorAll(".bg-ml-primary-subtle");
         badgeHighlights.forEach(badge => {
             badge.classList.remove("bg-ml-primary-subtle", "text-ml-primary-emphasis");
             badge.classList.add("bg-bluespace", "text-lightbluespace");
@@ -252,19 +252,19 @@ const searchSuggestions = document.getElementById("search-suggestions");
 // Show or hide search clear
 function showSearchClear(showClear) {
     if (showClear) {
-        searchSubmit.classList.remove("fa-magnifying-glass");
-        searchSubmit.classList.add("fa-xmark");
+        searchSubmit.classList.remove("bi-search");
+        searchSubmit.classList.add("bi-x-lg");
     }
     else {
-        searchSubmit.classList.remove("fa-xmark");
-        searchSubmit.classList.add("fa-magnifying-glass");
+        searchSubmit.classList.remove("bi-x-lg");
+        searchSubmit.classList.add("bi-search");
     }
 }
 
 // When user clicks on search or clear icon
 searchSubmit.addEventListener("click", () => {
     // Clear
-    if (searchSubmit.classList.contains("fa-xmark")) {
+    if (searchSubmit.classList.contains("bi-x-lg")) {
         showSearchClear(false);
         searchInput.value = "";
     }
