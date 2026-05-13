@@ -120,7 +120,7 @@ function updateSearch() {
 
         // Highlighting
         if (searchQuery.length > 0) {
-            const queryRegex = new RegExp(`(${searchInput.value})`, "gi");
+            const queryRegex = new RegExp(`(${searchInput.value.replace(/[.*+?^${}()|[\]\\]/g, "\\$&")})`, "gi");
             [...card.children].forEach(child => {
                 if (child.innerText.toLowerCase().includes(searchInput.value.toLowerCase())) {
                     // Check if the text is in a badge
