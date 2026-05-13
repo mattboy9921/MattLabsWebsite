@@ -182,7 +182,8 @@ mark.search-highlight {
     color: var(--bs-emphasis-color);
   }
 
-  a:hover & {
+  a:hover &,
+  a:focus & {
     color: var(--bs-ml-primary-text-emphasis);
   }
 
