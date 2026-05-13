@@ -175,6 +175,20 @@ input.btn-check:checked + label.btn-outline-ml {
 mark.search-highlight {
   padding: 0;
   background-color: lighten($deepDanger, 10%);
+  color: currentColor;
+  transition: color $transitionNormal ease-in-out;
+
+  a & {
+    color: var(--bs-emphasis-color);
+  }
+
+  a:hover & {
+    color: var(--bs-ml-primary-text-emphasis);
+  }
+
+  a:active & {
+    color: color-mix(in srgb, var(--bs-ml-primary-text-emphasis) 80%, black);
+  }
 }
 
 #resume-button-icon {
@@ -269,20 +283,5 @@ mark.search-highlight {
 @include media-breakpoint-down(lg) {
   .about-card-col {
     max-height: 500px;
-  }
-}
-
-a {
-  color: var(--bs-emphasis-color);
-  text-decoration: none;
-  transition: color $transitionNormal ease-in-out;
-
-  &:hover,
-  &:focus {
-    color: $ml-primary;
-  }
-
-  &:active {
-    color: darken($ml-primary, 10%);
   }
 }

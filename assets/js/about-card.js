@@ -135,7 +135,33 @@ function updateSearch() {
                     }
                     else {
                         // Add highlight
-                        child.innerHTML = child.innerHTML.replace(queryRegex, `<mark class="search-highlight">$1</mark>`);
+                        // Walk visible nodes
+                        const walker = document.createTreeWalker(
+                            child,
+                            NodeFilter.SHOW_TEXT
+                        );
+                        const textNodes = [];
+
+                        while (walker.nextNode()) {
+                            textNodes.push(walker.currentNode);
+                        }
+                        // Check for matches
+                        textNodes.forEach(node => {
+                            if (!queryRegex.test(node.nodeValue)) {
+                                queryRegex.lastIndex = 0;
+                                return;
+                            }
+                            // Reset regex before replace
+                            queryRegex.lastIndex = 0;
+                            // Create element with highlight
+                            const span = document.createElement("span");
+                            span.innerHTML = node.nodeValue.replace(
+                                queryRegex,
+                                `<mark class="search-highlight">$1</mark>`
+                            );
+                            // Replace original with highlight element
+                            node.parentNode.replaceChild(span, node);
+                        });
                     }
                 }
             });
