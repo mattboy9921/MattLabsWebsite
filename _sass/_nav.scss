@@ -68,18 +68,7 @@
 }
 
 #socials a {
-  color: var(--bs-body-color);
-  text-decoration: none;
   padding-left: 0.75em;
-  transition: color $transitionNormal ease-in-out;
-
-  &:hover {
-    color: $ml-primary;
-  }
-
-  &:active {
-    color: darken($ml-primary, 10%);
-  }
 }
 
 // Hide navbar elements under the offcanvas
@@ -168,19 +157,4 @@
 
 .offcanvas-footer {
   color: var(--bs-secondary-color);
-
-  & a {
-    color: var(--bs-body-color);
-    text-decoration: none;
-    transition: color $transitionNormal ease-in-out;
-
-    &:hover,
-    &:focus {
-      color: $ml-primary;
-    }
-
-    &:active {
-      color: darken($ml-primary, 10%);
-    }
-  }
 }

@@ -18,6 +18,22 @@ body {
   }
 }
 
+// Links
+a {
+  color: var(--bs-emphasis-color);
+  text-decoration: none;
+  transition: color $transitionNormal ease-in-out;
+
+  &:hover,
+  &:focus {
+    color: $ml-primary;
+  }
+
+  &:active {
+    color: darken($ml-primary, 10%);
+  }
+}
+
 // Button
 .btn-outline-ml {
   @extend .btn;
