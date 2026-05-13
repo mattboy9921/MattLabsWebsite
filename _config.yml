@@ -24,7 +24,6 @@ excerpt_separator: <!--more-->
 # Build settings
 
 plugins:
-  - jekyll-admin
   - jekyll-seo-tag
   - jekyll-sitemap
   - jekyll-http-request
