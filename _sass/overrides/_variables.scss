@@ -2,11 +2,12 @@
 
 // Colors
 $space: #141525;
-$lightSpace: shift-color($space, -15%);
-$deepSpace: shift-color($space, -5%);
-$blueSpace: lighten($space, 15%);
-$lightBlueSpace: lighten($blueSpace, 45%);
-$ml-primary: #DC3545FF;
+$spaceLight: shift-color($space, -15%);
+$spaceDeep: shift-color($space, -5%);
+$spaceBlue: lighten($space, 15%);
+$spaceBlueLight: lighten($spaceBlue, 45%);
+$accent: #DC3545FF;
+$accentDeep: shift-color($accent, 75%);
 
 $backgroundColor: $space;
 $gradientColor: #2C2D44;

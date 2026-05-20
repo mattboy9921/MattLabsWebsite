@@ -112,10 +112,10 @@ function updateSearch() {
             parent.replaceChild(document.createTextNode(mark.textContent), mark);
         });
         // Badges
-        const badgeHighlights = card.querySelectorAll(".bg-ml-primary-subtle");
+        const badgeHighlights = card.querySelectorAll(".bg-accent-subtle");
         badgeHighlights.forEach(badge => {
-            badge.classList.remove("bg-ml-primary-subtle", "text-ml-primary-emphasis");
-            badge.classList.add("bg-bluespace", "text-lightbluespace");
+            badge.classList.remove("bg-accent-subtle", "text-accent-emphasis");
+            badge.classList.add("bg-space-blue", "text-space-blue-light");
         })
 
         // Highlighting
@@ -128,8 +128,8 @@ function updateSearch() {
                         [...child.children].forEach(grandchild => {
                             if (grandchild.innerText.toLowerCase().includes(searchInput.value.toLowerCase())) {
                                 // Change badge colors
-                                grandchild.classList.remove("bg-bluespace", "text-lightbluespace");
-                                grandchild.classList.add("bg-ml-primary-subtle", "text-ml-primary-emphasis");
+                                grandchild.classList.remove("bg-space-blue", "text-space-blue-light");
+                                grandchild.classList.add("bg-accent-subtle", "text-accent-emphasis");
                             }
                         });
                     }

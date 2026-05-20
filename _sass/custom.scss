@@ -26,11 +26,11 @@ a {
 
   &:hover,
   &:focus {
-    color: $ml-primary;
+    color: $accent;
   }
 
   &:active {
-    color: darken($ml-primary, 10%);
+    color: darken($accent, 10%);
   }
 }
 
@@ -40,10 +40,10 @@ a {
   @extend .btn-outline-secondary;
 
   --#{$prefix}btn-color: --bs-body-color;
-  --#{$prefix}btn-hover-bg: #{$ml-primary};
+  --#{$prefix}btn-hover-bg: #{$accent};
   --#{$prefix}btn-hover-border-color: transparent;
   --#{$prefix}btn-hover-color: black;
-  --#{$prefix}btn-active-bg: #{darken($ml-primary, 10%)};
+  --#{$prefix}btn-active-bg: #{darken($accent, 10%)};
   --#{$prefix}btn-active-border-color: transparent;
   --#{$prefix}btn-active-color: black;
 }
@@ -62,11 +62,11 @@ a {
   transition: color $transitionNormal ease-in-out, opacity $transitionNormal ease-in-out;
 
   &:hover {
-    --#{$prefix}btn-close-color: #{$ml-primary};
+    --#{$prefix}btn-close-color: #{$accent};
   }
 
   &:active {
-    --#{$prefix}btn-close-color: #{darken($ml-primary, 10%)};
+    --#{$prefix}btn-close-color: #{darken($accent, 10%)};
   }
 }
 
@@ -75,7 +75,7 @@ a {
 .boosters {
   // Fuel Tank
   .fuel-tank-fill {
-    fill: $ml-primary;
+    fill: $accent;
   }
   .cap-fill {
     fill: #00000022;
@@ -103,7 +103,7 @@ a {
 
 // Icon
 .icon .icon-fill {
-  fill: $ml-primary;
+  fill: $accent;
 }
 
 // Shuttle
@@ -142,7 +142,7 @@ a {
     fill: #00000011;
   }
   .fin-fill {
-    fill: $ml-primary;
+    fill: $accent;
   }
 }
 
