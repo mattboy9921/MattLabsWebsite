@@ -23,9 +23,13 @@ excerpt_separator: <!--more-->
 
 # Build settings
 
+jekyll-minifier:
+  compress_css: false
+
 plugins:
   - jekyll-seo-tag
   - jekyll-sitemap
   - jekyll-http-request
   - jekyll-latex
   - jekyll-include-raw
+  - jekyll-minifier
