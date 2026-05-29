@@ -121,6 +121,7 @@ DEPENDENCIES
   jekyll-seo-tag
   jekyll-sitemap
   mini_racer
+  terser
 
 BUNDLED WITH
    2.2.22

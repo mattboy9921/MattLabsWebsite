@@ -28,6 +28,20 @@ sass:
 
 jekyll-minifier:
   compress_css: false
+  compress_javascript: false
+
+js_minifier:
+  source_maps: true
+  include:
+    - _site/assets/js/**/*.js
+  exclude:
+    - "**/*.min.js"
+    - "**/*.map"
+  terser:
+    compress: true
+    mangle: true
+    output:
+      comments: copyright
 
 purgecss:
   content:
