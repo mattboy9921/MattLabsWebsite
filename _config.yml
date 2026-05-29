@@ -29,6 +29,16 @@ sass:
 jekyll-minifier:
   compress_css: false
 
+purgecss:
+  content:
+    - _site/**/*.html
+    - _site/**/*.js
+
+  css:
+    - _site/assets/css/*.css
+
+  output: _site/assets/css/
+
 plugins:
   - jekyll-seo-tag
   - jekyll-sitemap
