@@ -1,13 +1,5 @@
 body {
-  //background-color: var(--bs-bg-color);
-  font-family: Inter, $bodyFontStack;
   font-feature-settings: 'liga' 1, 'calt' 1; // fix for Chrome
-}
-
-@supports (font-variation-settings: normal) {
-  body {
-    font-family: InterVariable, $bodyFontStack;
-  }
 }
 
 #content {
@@ -183,18 +175,4 @@ a {
 @import "stars-background";
 @import "nav";
 @import "fader";
-
-// Launching Soon
-@import "launching-soon";
-
-// 404
-@import "404";
-
-// Home
-@import "mattlabs-text";
-
-// About
-@import "about";
-
-// Dev tag
 @import "dev-tag";

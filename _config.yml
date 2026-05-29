@@ -23,6 +23,9 @@ excerpt_separator: <!--more-->
 
 # Build settings
 
+sass:
+  quiet_deps: true
+
 jekyll-minifier:
   compress_css: false
 

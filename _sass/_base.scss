@@ -2,7 +2,7 @@
 @import "bootstrap/functions";
 
 // Variable overrides
-@import "fonts";
+@import "fonts/fonts";
 @import "overrides/variables";
 
 // Required Bootstrap stylesheets
@@ -33,12 +33,7 @@
 @import "bootstrap/close";
 @import "bootstrap/forms";
 @import "bootstrap/alert";
-@import "bootstrap/card";
-@import "bootstrap/spinners";
 @import "bootstrap/transitions";
-@import "bootstrap/accordion";
-@import "bootstrap/badge";
-@import "bootstrap/list-group";
 
 @import "bootstrap/helpers";
 @import "bootstrap/utilities/api";
@@ -46,6 +41,10 @@
 // Bootstrap Icons
 $bootstrap-icons-font-dir: "/assets/fonts";
 @import "bootstrap-icons/bootstrap-icons";
+
+// Fonts
+@import "fonts/inter";
+@import "fonts/jetbrainsmono";
 
 // Custom code
 @import "custom";
