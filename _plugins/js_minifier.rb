@@ -1,6 +1,6 @@
-# Runs Tenser for JS minification with source maps
-
 # frozen_string_literal: true
+
+# Runs Tenser for JS minification with source maps
 
 require "terser"
 require "json"
