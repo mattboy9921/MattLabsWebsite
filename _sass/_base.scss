@@ -38,13 +38,10 @@
 @import "bootstrap/helpers";
 @import "bootstrap/utilities/api";
 
-// Bootstrap Icons
-$bootstrap-icons-font-dir: "/assets/fonts";
-@import "bootstrap-icons/bootstrap-icons";
-
 // Fonts
 @import "fonts/inter";
 @import "fonts/jetbrainsmono";
+@import "fonts/bootstrap-icons";
 
 // Custom code
 @import "custom";

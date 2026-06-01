@@ -273,24 +273,26 @@ function updateCards() {
 
 const searchInput = document.getElementById("filter-search-input");
 const searchSubmit = document.getElementById("filter-search-submit");
+const iconSearch = document.getElementById("filter-icon-search");
+const iconClear = document.getElementById("filter-icon-clear");
 const searchSuggestions = document.getElementById("search-suggestions");
 
 // Show or hide search clear
 function showSearchClear(showClear) {
     if (showClear) {
-        searchSubmit.classList.remove("bi-search");
-        searchSubmit.classList.add("bi-x-lg");
+        iconSearch.classList.add("d-none");
+        iconClear.classList.remove("d-none");
     }
     else {
-        searchSubmit.classList.remove("bi-x-lg");
-        searchSubmit.classList.add("bi-search");
+        iconClear.classList.add("d-none");
+        iconSearch.classList.remove("d-none");
     }
 }
 
 // When user clicks on search or clear icon
 searchSubmit.addEventListener("click", () => {
     // Clear
-    if (searchSubmit.classList.contains("bi-x-lg")) {
+    if (!iconClear.classList.contains("d-none")) {
         showSearchClear(false);
         searchInput.value = "";
     }

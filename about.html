@@ -31,7 +31,10 @@ css: /assets/css/about.css
         <div class="d-flex col-12 col-md-3 position-relative" id="search-container">
             <div class="input-group">
                 <input class="form-control form-control-ml focus-ring focus-ring-secondary border-end-0 search-bar" id="filter-search-input" type="search" placeholder="Search" aria-label="Search">
-                <button class="btn btn-search-ml border-start-0 ms-0 search-bar bi bi-search" id="filter-search-submit" type="submit"></button>
+                <button class="btn btn-search-ml border-start-0 ms-0 search-bar" id="filter-search-submit" type="submit">
+                    {% include bootstrap-icons/search.html id="filter-icon-search" %}
+                    {% include bootstrap-icons/x-lg.html id="filter-icon-clear" class="d-none" %}
+                </button>
             </div>
             <datalist id="search-tags">
                 {% for tag in about_tags %}
@@ -41,7 +44,7 @@ css: /assets/css/about.css
             <div class="list-group-ml d-none" id="search-suggestions"></div>
         </div>
         <div class="d-flex flex-grow-1 justify-content-center justify-content-md-end">
-            <a href="/resume/" target="_blank" class="btn btn-outline-ml d-flex flex-nowrap column-gap-1 align-items-center"><span>View</span><span>Resume</span><span id="resume-button-icon" class="bi bi-box-arrow-up-right"></span></a>
+            <a href="/resume/" target="_blank" class="btn btn-outline-ml d-flex flex-nowrap column-gap-1 align-items-center"><span>View</span><span>Resume</span><span id="resume-button-icon">{% include bootstrap-icons/box-arrow-up-right.html %}</span></a>
         </div>
     </div>
     <div class="py-3 w-100">
@@ -64,7 +67,7 @@ css: /assets/css/about.css
                             <span class="badge rounded-pill bg-space-blue text-space-blue-light">{{ about_tag }}</span>
                         {% endfor %}
                     </p>
-                    <button type="button" class="about-item-expand-button btn btn-no-outline-ml bi bi-chevron-down" data-bs-toggle="collapse" data-bs-target="#collapse-{{ item.title | slugify }}" aria-expanded="false" aria-controls="collapse-{{ item.title | slugify }}"></button>
+                    <button type="button" class="about-item-expand-button btn btn-no-outline-ml" data-bs-toggle="collapse" data-bs-target="#collapse-{{ item.title | slugify }}" aria-expanded="false" aria-controls="collapse-{{ item.title | slugify }}">{% include bootstrap-icons/chevron-down.html %}</button>
                 </div>
             {% endfor %}
             <div class="p-3 row justify-content-center align-items-center gap-4 d-none" id="no-results">

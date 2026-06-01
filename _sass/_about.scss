@@ -50,9 +50,9 @@
   border-radius: inherit;
 }
 
-.about-card button {
-  -webkit-text-stroke-width: 1px;
-  -webkit-text-stroke-color: inherit;
+.about-card button .bi {
+  stroke: currentColor;
+  stroke-width: 1.5;
 }
 
 .about-card-hidden {
@@ -138,8 +138,12 @@ input.btn-check:checked + label.btn-outline-ml {
 
 #filter-search-submit {
   min-width: 41px;
-  -webkit-text-stroke-width: 1px;
-  -webkit-text-stroke-color: inherit;
+
+  & .bi {
+    stroke: currentColor;
+    stroke-width: 1.5;
+    overflow: visible;
+  }
 }
 
 // Hide built in text cancel X button
@@ -192,9 +196,10 @@ mark.search-highlight {
   }
 }
 
-#resume-button-icon {
-  -webkit-text-stroke-width: 0.75px;
-  -webkit-text-stroke-color: inherit;
+#resume-button-icon .bi {
+  stroke: currentColor;
+  stroke-width: 1.5;
+  overflow: visible;
 }
 
 #rocket-no-results {
