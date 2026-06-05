@@ -4,7 +4,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1" />
         <meta charset="utf-8">
         <title>{{ page.title }} - {{ site.title }}</title>
-        {% assign css_file = page.css | default: layout.css | default: "/assets/css/main.css" %}
+        {% assign css_file = layout.css | default: page.css | default: "/assets/css/main.css" %}
         <link rel="stylesheet" href="{{ css_file | relative_url }}">
         {% assign js_file = layout.js | default: page.js |  default: "/assets/js/main.js" %}
         <script defer src="{{ js_file | relative_url }}"></script>
