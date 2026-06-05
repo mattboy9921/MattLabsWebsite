@@ -8,7 +8,7 @@ js: /assets/js/about.js
 ---
 <div id="about-container" class="d-flex flex-column flex-nowrap align-items-center justify-content-center">
     <div class="p-3 w-100">
-        <p class="display-1 fw-bold text-accent">About</p>
+        <h1 class="display-1 fw-bold text-accent">About</h1>
         {% capture about-text %}{% include about.md %}{% endcapture %}
         {{ about-text | markdownify }}
     </div>
@@ -31,7 +31,7 @@ js: /assets/js/about.js
         <div class="d-flex col-12 col-md-3 position-relative" id="search-container">
             <div class="input-group">
                 <input class="form-control form-control-ml focus-ring focus-ring-secondary border-end-0 search-bar" id="filter-search-input" type="search" placeholder="Search" aria-label="Search">
-                <button class="btn btn-search-ml border-start-0 ms-0 search-bar" id="filter-search-submit" type="submit">
+                <button class="btn btn-search-ml border-start-0 ms-0 search-bar" id="filter-search-submit" type="submit" aria-label="Submit search">
                     {% include bootstrap-icons/search.html id="filter-icon-search" %}
                     {% include bootstrap-icons/x-lg.html id="filter-icon-clear" class="d-none" %}
                 </button>
@@ -57,7 +57,9 @@ js: /assets/js/about.js
                      data-tags="{{ item.about_tags | join: ',' | downcase }}"
                      data-content="{{ item.content | strip_html | downcase }}">
                     <h2 class="about-card-title">{{ item.title }}</h2>
-                    <h5>{{ item.subtitle }}</h5>
+                    {% if item.subtitle %}
+                        <p class="h5">{{ item.subtitle }}</p>
+                    {% endif %}
                     {{ item.excerpt }}
                     <div class="collapse" id="collapse-{{ item.title | slugify }}">
                         {{ item.content | remove: item.excerpt | markdownify }}
@@ -67,7 +69,15 @@ js: /assets/js/about.js
                             <span class="badge rounded-pill bg-space-blue text-space-blue-light">{{ about_tag }}</span>
                         {% endfor %}
                     </p>
-                    <button type="button" class="about-item-expand-button btn btn-no-outline-ml" data-bs-toggle="collapse" data-bs-target="#collapse-{{ item.title | slugify }}" aria-expanded="false" aria-controls="collapse-{{ item.title | slugify }}">{% include bootstrap-icons/chevron-down.html %}</button>
+                    <button type="button"
+                            class="about-item-expand-button btn btn-no-outline-ml"
+                            data-bs-toggle="collapse"
+                            data-bs-target="#collapse-{{ item.title | slugify }}"
+                            aria-expanded="false"
+                            aria-controls="collapse-{{ item.title | slugify }}"
+                            aria-label="Expand {{ item.title }} section">
+                        {% include bootstrap-icons/chevron-down.html %}
+                    </button>
                 </div>
             {% endfor %}
             <div class="p-3 row justify-content-center align-items-center gap-4 d-none" id="no-results">

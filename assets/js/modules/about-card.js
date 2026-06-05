@@ -285,10 +285,12 @@ function showSearchClear(showClear) {
     if (showClear) {
         iconSearch.classList.add("d-none");
         iconClear.classList.remove("d-none");
+        searchSubmit.ariaLabel = "Clear search";
     }
     else {
         iconClear.classList.add("d-none");
         iconSearch.classList.remove("d-none");
+        searchSubmit.ariaLabel = "Search submit";
     }
 }
 
