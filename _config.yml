@@ -38,6 +38,8 @@ esbuild:
   files:
     - input: assets/js/base.js
       output: assets/js/base.js
+    - input: assets/js/main.js
+      output: assets/js/main.js
     - input: assets/js/about.js
       output: assets/js/about.js
 

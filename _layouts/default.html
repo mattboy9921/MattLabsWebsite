@@ -6,7 +6,8 @@
         <title>{{ page.title }} - {{ site.title }}</title>
         {% assign css_file = page.css | default: layout.css | default: "/assets/css/main.css" %}
         <link rel="stylesheet" href="{{ css_file | relative_url }}">
-        <script defer src="/assets/js/base.js"></script>
+        {% assign js_file = layout.js | default: page.js |  default: "/assets/js/main.js" %}
+        <script defer src="{{ js_file | relative_url }}"></script>
         {% include livereload.html %}
         {% include fonts.html %}
         {% include favicon.html %}
