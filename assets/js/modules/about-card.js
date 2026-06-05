@@ -1,5 +1,8 @@
 // About cards and filters
 
+// Bootstrap
+import Collapse from "../bootstrap/collapse";
+
 // About cards
 
 // Mouse hover effect
@@ -29,7 +32,7 @@ for(const button of buttons) {
         for(const collapse of document.getElementsByClassName("collapse")) {
             // Collapse all but the one we are clicking
             if (thisCollapse.id !== collapse.id) {
-                const collapseInstance = bootstrap.Collapse.getInstance(collapse);
+                const collapseInstance = Collapse.getInstance(collapse);
                 if (collapseInstance && collapseInstance._isShown) {
                     collapseInstance.hide();
                 }
@@ -219,7 +222,7 @@ function updateCards() {
 
                     // If the card was expanded, collapse it
                     const collapse = card.querySelector(".collapse");
-                    const collapseInstance = bootstrap.Collapse.getInstance(collapse);
+                    const collapseInstance = Collapse.getInstance(collapse);
                     if (collapseInstance && collapseInstance._isShown) {
                         collapseInstance.hide();
                     }

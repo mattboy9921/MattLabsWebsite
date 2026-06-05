@@ -30,6 +30,8 @@ module MattLabs
       # Don't run unless enabled
       return unless config["enabled"]
 
+      Jekyll.logger.info "Cache Bust:", "Processing generated HTML/CSS..."
+
       # Site output directory
       dest = site.dest
       # Find all HTML files
@@ -56,6 +58,8 @@ module MattLabs
 
         File.write(file, updated) if updated != original
       end
+
+      Jekyll.logger.info "Cache Bust:", "Complete."
     end
 
     # Process HTML content

@@ -30,18 +30,16 @@ jekyll-minifier:
   compress_css: false
   compress_javascript: false
 
-js_minifier:
-  source_maps: true
-  include:
-    - _site/assets/js/**/*.js
-  exclude:
-    - "**/*.min.js"
-    - "**/*.map"
-  terser:
-    compress: true
-    mangle: true
-    output:
-      comments: copyright
+esbuild:
+  script: /usr/bin/esbuild
+  enabled: true
+  minify: environment
+  sourcemap: always
+  files:
+    - input: assets/js/base.js
+      output: assets/js/base.js
+    - input: assets/js/about.js
+      output: assets/js/about.js
 
 purgecss:
   content:

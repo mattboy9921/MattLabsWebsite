@@ -12,5 +12,6 @@ gem "jekyll-http-request"
 gem "jekyll-latex"
 gem "jekyll-include-raw"
 gem "jekyll-minifier"
+
 gem "mini_racer"
 gem "terser"
