@@ -3,11 +3,12 @@ layout: default
 title: "About"
 description: "Info about me, my background and my resume"
 permalink: /about/
+css: /assets/css/about.css
+js: /assets/js/about.js
 ---
-<script src="/assets/js/about-card.js" defer></script>
 <div id="about-container" class="d-flex flex-column flex-nowrap align-items-center justify-content-center">
     <div class="p-3 w-100">
-        <p class="display-1 fw-bold text-ml-primary">About</p>
+        <h1 class="display-1 fw-bold text-accent">About</h1>
         {% capture about-text %}{% include about.md %}{% endcapture %}
         {{ about-text | markdownify }}
     </div>
@@ -30,7 +31,10 @@ permalink: /about/
         <div class="d-flex col-12 col-md-3 position-relative" id="search-container">
             <div class="input-group">
                 <input class="form-control form-control-ml focus-ring focus-ring-secondary border-end-0 search-bar" id="filter-search-input" type="search" placeholder="Search" aria-label="Search">
-                <button class="btn btn-search-ml border-start-0 ms-0 search-bar bi bi-search" id="filter-search-submit" type="submit"></button>
+                <button class="btn btn-search-ml border-start-0 ms-0 search-bar" id="filter-search-submit" type="submit" aria-label="Submit search">
+                    {% include bootstrap-icons/search.html id="filter-icon-search" %}
+                    {% include bootstrap-icons/x-lg.html id="filter-icon-clear" class="d-none" %}
+                </button>
             </div>
             <datalist id="search-tags">
                 {% for tag in about_tags %}
@@ -40,7 +44,7 @@ permalink: /about/
             <div class="list-group-ml d-none" id="search-suggestions"></div>
         </div>
         <div class="d-flex flex-grow-1 justify-content-center justify-content-md-end">
-            <a href="/resume/" target="_blank" class="btn btn-outline-ml d-flex flex-nowrap column-gap-1 align-items-center"><span>View</span><span>Resume</span><span id="resume-button-icon" class="bi bi-box-arrow-up-right"></span></a>
+            <a href="/resume/" target="_blank" class="btn btn-outline-ml d-flex flex-nowrap column-gap-1 align-items-center"><span>View</span><span>Resume</span><span id="resume-button-icon">{% include bootstrap-icons/box-arrow-up-right.html %}</span></a>
         </div>
     </div>
     <div class="py-3 w-100">
@@ -53,17 +57,27 @@ permalink: /about/
                      data-tags="{{ item.about_tags | join: ',' | downcase }}"
                      data-content="{{ item.content | strip_html | downcase }}">
                     <h2 class="about-card-title">{{ item.title }}</h2>
-                    <h5>{{ item.subtitle }}</h5>
+                    {% if item.subtitle %}
+                        <p class="h5">{{ item.subtitle }}</p>
+                    {% endif %}
                     {{ item.excerpt }}
                     <div class="collapse" id="collapse-{{ item.title | slugify }}">
                         {{ item.content | remove: item.excerpt | markdownify }}
                     </div>
                     <p>
                         {% for about_tag in item.about_tags %}
-                            <span class="badge rounded-pill bg-bluespace text-lightbluespace">{{ about_tag }}</span>
+                            <span class="badge rounded-pill bg-space-blue text-space-blue-light">{{ about_tag }}</span>
                         {% endfor %}
                     </p>
-                    <button type="button" class="about-item-expand-button btn btn-no-outline-ml bi bi-chevron-down" data-bs-toggle="collapse" data-bs-target="#collapse-{{ item.title | slugify }}" aria-expanded="false" aria-controls="collapse-{{ item.title | slugify }}"></button>
+                    <button type="button"
+                            class="about-item-expand-button btn btn-no-outline-ml"
+                            data-bs-toggle="collapse"
+                            data-bs-target="#collapse-{{ item.title | slugify }}"
+                            aria-expanded="false"
+                            aria-controls="collapse-{{ item.title | slugify }}"
+                            aria-label="Expand {{ item.title }} section">
+                        {% include bootstrap-icons/chevron-down.html %}
+                    </button>
                 </div>
             {% endfor %}
             <div class="p-3 row justify-content-center align-items-center gap-4 d-none" id="no-results">

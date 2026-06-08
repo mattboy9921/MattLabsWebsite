@@ -1,0 +1,78 @@
+// 404
+
+#text-404 {
+  max-width: 41em;
+  max-height: 70vh;
+  animation: fade-reveal-left 1s ease-in-out;
+  font-feature-settings: "cv02";
+}
+
+#rocket-404 {
+  position: relative;
+  animation: fade-reveal 1s ease-in-out;
+  width: calc(15vw + 10vh);
+  max-width: 300px;
+  pointer-events: none;
+
+  & svg {
+    display: block;
+  }
+
+  & .shuttle,
+  .icon,
+  .trail-shuttle {
+    width: 100%;
+    height: 100%;
+    animation: move-shuttle-404 400s infinite linear both;
+  }
+
+  & .shuttle,
+  .icon {
+    position: absolute;
+    top: 0;
+  }
+
+  & .trail-shuttle {
+    filter: blur(1px) drop-shadow(0 0 30px white);
+
+    & .trail-stop-start {
+      stop-color: #FFFFFF88;
+    }
+
+    & .trail-stop-end {
+      stop-color: #FFFFFF00;
+    }
+
+    & .trail-path {
+      fill: url(#trail-shuttle-gradient);
+      animation: shuttle-booster-trail-404 10s none infinite alternate;
+    }
+  }
+}
+
+@keyframes move-shuttle-404 {
+  0% {
+    transform: translate(0, 0);
+  }
+  25% {
+    transform: translate(4em, -4em) rotate(-360deg);
+  }
+  50% {
+    transform: translate(0, 0) rotate(-720deg);
+  }
+  75% {
+    transform: translate(-4em, 4em) rotate(-1080deg);
+  }
+  100% {
+    transform: translate(0, 0) rotate(-1440deg);
+  }
+}
+
+@keyframes shuttle-booster-trail-404 {
+  0%, 8%, 12%, 18% {
+    opacity: 0;
+  }
+  6%, 10%, 14% {
+    opacity: 1;
+  }
+}

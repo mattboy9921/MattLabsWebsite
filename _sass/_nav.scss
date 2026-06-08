@@ -37,9 +37,13 @@
 // Navbar toggler button
 #navbar-toggler {
   font-size: x-large;
-  -webkit-text-stroke-width: 2px;
-  -webkit-text-stroke-color: inherit;
   transition: color $transitionNormal ease-in-out, background-color $transitionNormal ease-in-out, border-color $transitionNormal ease-in-out, box-shadow $transitionNormal ease-in-out, opacity 300ms ease-in-out;
+
+  & .bi {
+    stroke: currentColor;
+    stroke-width: 1.5;
+    pointer-events: none;
+  }
 }
 
 .navbar-toggler-bounce {
@@ -112,9 +116,9 @@
   }
 }
 
-#offcanvas-close {
-  -webkit-text-stroke-width: 1px;
-  -webkit-text-stroke-color: inherit;
+#offcanvas-close .bi {
+  stroke: currentColor;
+  stroke-width: 1.5;
 }
 
 // Nav links
@@ -134,12 +138,12 @@
   &:hover,
   &:focus {
     transform: scale(102%) !important;
-    color: $ml-primary !important;
+    color: $accent !important;
     transition: transform 250ms ease-in-out;
   }
 
   &:active {
-    color: darken($ml-primary, 10%) !important;
+    color: darken($accent, 10%) !important;
     transition: color $transitionNormal ease-in-out;
   }
 }

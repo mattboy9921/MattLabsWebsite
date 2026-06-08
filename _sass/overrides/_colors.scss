@@ -1,14 +1,13 @@
 // Color overrides
-$deepDanger: shift-color($danger, 75%);
-
 $custom-theme-colors: (
         "space": $space,
-        "lightspace": $lightSpace,
-        "deepspace": $deepSpace,
-        "bluespace": $blueSpace,
-        "lightbluespace": $lightBlueSpace,
-        "deepdanger": $deepDanger,
-        "ml-primary": $ml-primary
+        "space-light": $spaceLight,
+        "space-deep": $spaceDeep,
+        "space-blue": $spaceBlue,
+        "space-blue-light": $spaceBlueLight,
+
+        "accent": $accent,
+        "accent-deep": $accentDeep
 );
 
 // Override theme colors and utilities

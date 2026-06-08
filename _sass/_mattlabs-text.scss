@@ -3,18 +3,18 @@
 // Matt Effect
 
 #matt-text {
-  animation: fade-reveal 1s 1s backwards;
+  animation: fade-reveal 1s backwards;
 }
 
 #sub-text {
-  animation: fade-reveal 1s 6s backwards;
+  animation: fade-reveal 1s 3.5s backwards;
 }
 
 // Labs Text Type Effect
 
 #labs-text::before {
   content: "";
-  animation: typing 1s 3s forwards;
+  animation: typing 1s 1.5s forwards;
 }
 
 #labs-text::after {
@@ -22,7 +22,7 @@
   display: inline-block;
   width: 0;
   color: transparent;
-  animation: blink-cursor .5s step-end 2s 8 alternate;
+  animation: blink-cursor .5s step-end 500ms 6 alternate;
 }
 
 @keyframes typing {

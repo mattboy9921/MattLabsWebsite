@@ -23,10 +23,40 @@ excerpt_separator: <!--more-->
 
 # Build settings
 
+sass:
+  quiet_deps: true
+
+jekyll-minifier:
+  compress_css: false
+  compress_javascript: false
+
+esbuild:
+  script: /usr/bin/esbuild
+  enabled: true
+  minify: environment
+  sourcemap: always
+  files:
+    - input: assets/js/base.js
+      output: assets/js/base.js
+    - input: assets/js/main.js
+      output: assets/js/main.js
+    - input: assets/js/about.js
+      output: assets/js/about.js
+
+purgecss:
+  content:
+    - _site/**/*.html
+    - _site/**/*.js
+
+  css:
+    - _site/assets/css/*.css
+
+  output: _site/assets/css/
+
 plugins:
-  - jekyll-admin
   - jekyll-seo-tag
   - jekyll-sitemap
   - jekyll-http-request
   - jekyll-latex
   - jekyll-include-raw
+  - jekyll-minifier

@@ -1,7 +1,7 @@
 // About
 
 #about-container {
-  animation: fade-reveal 1s 300ms ease-in-out backwards;
+  animation: fade-reveal 1s ease-in-out backwards;
 }
 
 #about-cards {
@@ -50,9 +50,9 @@
   border-radius: inherit;
 }
 
-.about-card button {
-  -webkit-text-stroke-width: 1px;
-  -webkit-text-stroke-color: inherit;
+.about-card button .bi {
+  stroke: currentColor;
+  stroke-width: 1.5;
 }
 
 .about-card-hidden {
@@ -83,28 +83,28 @@ label.btn-outline-ml {
   @media (hover: hover) and (pointer: fine) {
     &:hover {
       color: $black !important;
-      background-color: $ml-primary !important;
+      background-color: $accent !important;
       border-color: transparent !important;
     }
   }
 
   &:active {
     color: $black !important;
-    background-color: darken($ml-primary, 10%) !important;
+    background-color: darken($accent, 10%) !important;
     border-color: transparent !important;
   }
 }
 
 input.btn-check:checked + label.btn-outline-ml {
-  background-color: $ml-primary;
+  background-color: $accent;
 }
 
-.badge-about-tag-bluespace {
-  color: lighten($blueSpace, 45%) !important;
+.badge-about-tag-space-blue {
+  color: lighten($spaceBlue, 45%) !important;
 }
 
-.badge-about-tag-deepdanger {
-  color: lighten($deepDanger, 45%) !important;
+.badge-about-tag-accent-deep {
+  color: lighten($accentDeep, 45%) !important;
 }
 
 .btn-search-ml {
@@ -113,10 +113,10 @@ input.btn-check:checked + label.btn-outline-ml {
 
   --#{$prefix}btn-bg: #{rgba(var(--bs-body-color-rgb), 0.2)};
   --#{$prefix}btn-color: --bs-body-color;
-  --#{$prefix}btn-hover-color: #{$ml-primary};
+  --#{$prefix}btn-hover-color: #{$accent};
   --#{$prefix}btn-hover-bg: #{rgba(var(--bs-body-color-rgb), 0.2)};
   --#{$prefix}btn-active-bg: #{rgba(var(--bs-body-color-rgb), 0.2)};
-  --#{$prefix}btn-active-color: #{darken($ml-primary, 10%)};
+  --#{$prefix}btn-active-color: #{darken($accent, 10%)};
 }
 
 .input-group {
@@ -138,8 +138,12 @@ input.btn-check:checked + label.btn-outline-ml {
 
 #filter-search-submit {
   min-width: 41px;
-  -webkit-text-stroke-width: 1px;
-  -webkit-text-stroke-color: inherit;
+
+  & .bi {
+    stroke: currentColor;
+    stroke-width: 1.5;
+    overflow: visible;
+  }
 }
 
 // Hide built in text cancel X button
@@ -164,9 +168,9 @@ input.btn-check:checked + label.btn-outline-ml {
   --#{$prefix}list-group-action-hover-color: #{$list-group-action-hover-color};
   --#{$prefix}list-group-action-hover-bg: #{rgba(var(--bs-tertiary-color-rgb), 0.2)};
   --#{$prefix}list-group-action-active-color: #{$list-group-action-active-color};
-  --#{$prefix}list-group-action-active-bg: #{darken($ml-primary, 10%)};
+  --#{$prefix}list-group-action-active-bg: #{darken($accent, 10%)};
   --#{$prefix}list-group-active-color: #{black};
-  --#{$prefix}list-group-active-bg: #{$ml-primary};
+  --#{$prefix}list-group-active-bg: #{$accent};
   --#{$prefix}list-group-active-border-color: transparent;
 
   backdrop-filter: blur(10px);
@@ -174,7 +178,7 @@ input.btn-check:checked + label.btn-outline-ml {
 
 mark.search-highlight {
   padding: 0;
-  background-color: lighten($deepDanger, 10%);
+  background-color: lighten($accentDeep, 10%);
   color: currentColor;
   transition: color $transitionNormal ease-in-out;
 
@@ -184,17 +188,18 @@ mark.search-highlight {
 
   a:hover &,
   a:focus & {
-    color: var(--bs-ml-primary-text-emphasis);
+    color: var(--bs-accent-text-emphasis);
   }
 
   a:active & {
-    color: color-mix(in srgb, var(--bs-ml-primary-text-emphasis) 80%, black);
+    color: color-mix(in srgb, var(--bs-accent-text-emphasis) 80%, black);
   }
 }
 
-#resume-button-icon {
-  -webkit-text-stroke-width: 0.75px;
-  -webkit-text-stroke-color: inherit;
+#resume-button-icon .bi {
+  stroke: currentColor;
+  stroke-width: 1.5;
+  overflow: visible;
 }
 
 #rocket-no-results {
