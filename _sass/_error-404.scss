@@ -10,7 +10,7 @@
 #rocket-404 {
   position: relative;
   animation: fade-reveal 1s ease-in-out;
-  width: 50%;
+  width: calc(15vw + 10vh);
   max-width: 300px;
   pointer-events: none;
 
