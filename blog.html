@@ -19,7 +19,7 @@ js: /assets/js/blog.js
         </p>
     </div>
     <div class="p-3 w-100">
-        <div class="row" id="latest-posts">
+        <div class="row card-hover-effect-container" id="latest-posts">
             <h2>Latest Posts</h2>
 
             {% for post in site.posts limit: 3 %}
@@ -36,7 +36,7 @@ js: /assets/js/blog.js
                 {% endfor %}
 
                 <div class="col-md-4 py-3">
-                    <div class="card latest-post-card text-bg-{{ category_name }} h-100">
+                    <div class="card latest-post-card card-hover-effect text-bg-{{ category_name }} h-100">
                         <div class="card-img-top display-1 text-center text-{{ category_name }}-emphasis p-2 pt-5">
                             <p class="blog-card-category fs-6 fw-bold">{{ category_name | upcase }}</p>
                             {% assign icon = "bootstrap-icons/" | append: category_icon | append: ".svg" %}

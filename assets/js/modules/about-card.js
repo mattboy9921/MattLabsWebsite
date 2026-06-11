@@ -5,19 +5,6 @@ import Collapse from "../bootstrap/collapse";
 
 // About cards
 
-// Mouse hover effect
-
-document.getElementById("about-cards").onmousemove = e => {
-    for(const card of document.getElementsByClassName("about-card")) {
-        const rect = card.getBoundingClientRect(),
-            x = e.clientX - rect.left,
-            y = e.clientY - rect.top;
-
-        card.style.setProperty("--mouse-x", `${x}px`);
-        card.style.setProperty("--mouse-y", `${y}px`);
-    }
-}
-
 // Collapse buttons
 const buttons = document.getElementsByClassName("about-item-expand-button")
 

@@ -1,3 +1,3 @@
 import "./base"
 
-import "./modules/blog-card";
+import "./modules/card-hover-effect";

@@ -27,7 +27,9 @@
       stroke: currentColor;
       stroke-width: 1.5;
     }
+  }
 
+  .card-hover-effect.text-bg-#{$name} {
     &:before {
       content: "";
       background: radial-gradient(800px circle at var(--mouse-x) var(--mouse-y), rgba($color, 0.2), transparent 40%);

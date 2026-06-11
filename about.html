@@ -48,9 +48,9 @@ js: /assets/js/about.js
         </div>
     </div>
     <div class="py-3 w-100">
-        <div id="about-cards">
+        <div class="card-hover-effect-container">
             {% for item in site.about_items %}
-                <div class="about-card p-3 mb-2"
+                <div class="about-card card-hover-effect p-3 mb-2"
                      data-category="{{ item.about_category }}"
                      data-title="{{ item.title | downcase }}"
                      data-subtitle="{{ item.subtitle | downcase }}"
