@@ -1,0 +1,55 @@
+@each $name, $color in $category-colors {
+  .latest-post-card.text-bg-#{$name} {
+    color: $body-color-dark !important;
+    border: solid 1px transparent;
+    transition: border-color 500ms;
+
+    background: linear-gradient(
+            135deg,
+            rgba(tint-color($color, 30%), 0.2),
+            rgba(shade-color($color, 30%), 0.2)
+    ) !important;
+
+    &:hover {
+      border: solid 1px var(--#{$prefix}#{$name}-border-subtle);
+    }
+
+    & a:hover,
+    & a:focus {
+      color: var(--#{$prefix}#{$name}-text-emphasis);
+    }
+
+    & a:active {
+      color: $color;
+    }
+
+    & a svg {
+      stroke: currentColor;
+      stroke-width: 1.5;
+    }
+
+    &:before {
+      content: "";
+      background: radial-gradient(800px circle at var(--mouse-x) var(--mouse-y), rgba($color, 0.2), transparent 40%);
+      height: 100%;
+      width: 100%;
+      left: 0;
+      top: 0;
+      opacity: 0;
+      transition: opacity 500ms;
+      position: absolute;
+      z-index: -1;
+      border-radius: inherit;
+    }
+
+    &:hover::before {
+      opacity: 1;
+    }
+  }
+}
+
+.blog-card-category {
+  position: absolute;
+  top: 1rem;
+  left: 1rem;
+}

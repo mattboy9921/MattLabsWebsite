@@ -13,6 +13,14 @@ $backgroundColor: $space;
 $gradientColor: #2C2D44;
 $custom-body-color-dark: #cfd1de;
 
+$development: #5bcd90;
+$engineering: #5e53f9;
+$infrastructure: #34bfd0;
+$automotive: #DC3545;
+$explore: #4176fc;
+$thoughts: #c75ae8;
+$unknown:  $gradientColor;
+
 // Variable Overrides
 $body-color-dark: $custom-body-color-dark;
 $body-secondary-color-dark: darken($body-color-dark, 10%);

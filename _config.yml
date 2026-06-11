@@ -15,6 +15,13 @@ defaults:
       path: "assets/**/*.pdf"
     values:
       sitemap: false
+  -
+    scope:
+      path: ""
+      type: "posts"
+    values:
+      layout: default
+      permalink: /blog/:year/:month/:day/:title/
 
 collections:
   - about_items
@@ -42,6 +49,8 @@ esbuild:
       output: assets/js/main.js
     - input: assets/js/about.js
       output: assets/js/about.js
+    - input: assets/js/blog.js
+      output: assets/js/blog.js
 
 purgecss:
   content:
@@ -60,3 +69,4 @@ plugins:
   - jekyll-latex
   - jekyll-include-raw
   - jekyll-minifier
+  - jekyll-regex-replace

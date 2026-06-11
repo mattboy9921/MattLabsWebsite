@@ -10,6 +10,18 @@ $custom-theme-colors: (
         "accent-deep": $accentDeep
 );
 
+$category-colors: (
+        "development": $development,
+        "engineering": $engineering,
+        "infrastructure": $infrastructure,
+        "automotive": $automotive,
+        "explore": $explore,
+        "thoughts": $thoughts,
+        "unknown": $unknown
+);
+
+$custom-theme-colors: map-merge($custom-theme-colors, $category-colors);
+
 // Override theme colors and utilities
 $theme-colors: map-merge($theme-colors, $custom-theme-colors);
 $theme-colors-rgb: map-loop($theme-colors, to-rgb, "$value");

@@ -54,6 +54,7 @@ GEM
       jekyll (~> 4.0)
       json-minify (~> 0.0.3)
       terser (~> 1.2.3)
+    jekyll-regex-replace (1.1.0)
     jekyll-sass-converter (3.1.0)
       sass-embedded (~> 1.75)
     jekyll-seo-tag (2.9.0)
@@ -118,6 +119,7 @@ DEPENDENCIES
   jekyll-include-raw
   jekyll-latex
   jekyll-minifier
+  jekyll-regex-replace
   jekyll-seo-tag
   jekyll-sitemap
   mini_racer

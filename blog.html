@@ -1,9 +1,58 @@
 ---
-layout: launching-soon
+layout: default
 title: "Blog"
 description: "Read about my adventures, projects and other fun stuff"
 permalink: /blog/
+css: /assets/css/blog.css
+js: /assets/js/blog.js
 ---
-<main class="container-fluid d-flex align-items-center justify-content-center" id="content">
-    Nothing to see here yet!
-</main>
+<div id="blog-container" class="d-flex flex-column flex-nowrap align-items-center justify-content-center">
+    <div class="p-3 w-100">
+        <h1 class="display-1 fw-bold text-accent">Blog</h1>
+        <h2>{{ page.description }}.</h2>
+        <p>
+            Welcome to the MattLabs blog. This is where I share projects, experiments, tutorials, and whatever has
+            captured my attention. I enjoy everything from development and self-hosted  infrastructure to electronics,
+            automotive projects, and learning along the way. Posts may be practical guides, document ongoing projects,
+            and might just be explorations of interesting ideas. If it involves building, learning, troubleshooting,
+            or understanding how something works, there's a good chance you'll find it here.
+        </p>
+    </div>
+    <div class="p-3 w-100">
+        <div class="row" id="latest-posts">
+            <h2>Latest Posts</h2>
+
+            {% for post in site.posts limit: 3 %}
+
+                {% assign category_name = "unknown" %}
+                {% assign category_icon = "question-octagon" %}
+
+                {% for category in site.data.category-icons %}
+                    {% if post.category == category[0] %}
+                        {% assign category_name = category[0] %}
+                        {% assign category_icon = category[1].icon %}
+                        {% break %}
+                    {% endif %}
+                {% endfor %}
+
+                <div class="col-md-4 py-3">
+                    <div class="card latest-post-card text-bg-{{ category_name }} h-100">
+                        <div class="card-img-top display-1 text-center text-{{ category_name }}-emphasis p-2 pt-5">
+                            <p class="blog-card-category fs-6 fw-bold">{{ category_name | upcase }}</p>
+                            {% assign icon = "bootstrap-icons/" | append: category_icon | append: ".svg" %}
+                            <div class="pt-2">{% include {{ icon }} %}</div>
+                        </div>
+                        <div class="card-body d-flex flex-column">
+                            <h4 class="card-title">{{ post.title }}</h4>
+                            <div class="card-text">{{ post.excerpt | regex_replace: '<p[^>]*>\s*<img[^>]*>\s*</p>', '' | truncatewords: 40 }}</div>
+                            <div class="d-flex justify-content-between align-items-end flex-fill pt-3">
+                                <p class="mb-0">{{ post.date | date_to_string: "ordinal", "US" }}</p>
+                                <a href="{{ post.url }}">Read More {% include bootstrap-icons/arrow-right.svg %}</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            {% endfor %}
+        </div>
+    </div>
+</div>

@@ -12,6 +12,7 @@ gem "jekyll-http-request"
 gem "jekyll-latex"
 gem "jekyll-include-raw"
 gem "jekyll-minifier"
+gem "jekyll-regex-replace"
 
 gem "mini_racer"
 gem "terser"

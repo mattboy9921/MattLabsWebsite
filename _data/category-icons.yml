@@ -1,0 +1,17 @@
+development:
+  icon: braces
+
+engineering:
+  icon: cpu
+
+infrastructure:
+  icon: hdd-rack-fill
+
+automotive:
+  icon: car-front-fill
+
+explore:
+  icon: stars
+
+thoughts:
+  icon: journal-text
